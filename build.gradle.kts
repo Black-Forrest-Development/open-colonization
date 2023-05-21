@@ -24,11 +24,11 @@ subprojects {
     }
 
     dependencies {
-        implementation("ch.qos.logback:logback-classic:1.4.5")
+        implementation("ch.qos.logback:logback-classic:1.4.7")
 
-        testImplementation("org.junit.jupiter:junit-jupiter-api:5.9.2")
-        testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:5.9.2")
-        testImplementation("io.mockk:mockk:1.13.3")
+        testImplementation("org.junit.jupiter:junit-jupiter-api:5.9.3")
+        testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:5.9.3")
+        testImplementation("io.mockk:mockk:1.13.4")
 
         // https
         implementation("io.micronaut:micronaut-jackson-databind")
@@ -75,8 +75,6 @@ subprojects {
         implementation("io.micronaut.sql:micronaut-jdbc-hikari")
         implementation("jakarta.annotation:jakarta.annotation-api")
         implementation("jakarta.persistence:jakarta.persistence-api:3.1.0")
-        // redis
-//        implementation("io.micronaut.redis:micronaut-redis-lettuce")
     }
 
     java {
