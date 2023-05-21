@@ -3,8 +3,8 @@ plugins {
     id("org.jetbrains.kotlin.kapt") version "1.8.21"
     id("org.jetbrains.kotlin.plugin.allopen") version "1.8.21"
     id("org.sonarqube") version "4.0.0.2929"
-    id("com.google.cloud.tools.jib") version "3.3.1" apply (false)
-    id("io.micronaut.application") version "3.7.6" apply (false)
+    id("com.google.cloud.tools.jib") version "3.3.2" apply (false)
+    id("io.micronaut.application") version "3.7.9" apply (false)
     jacoco
 }
 
@@ -28,7 +28,7 @@ subprojects {
 
         testImplementation("org.junit.jupiter:junit-jupiter-api:5.9.3")
         testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:5.9.3")
-        testImplementation("io.mockk:mockk:1.13.4")
+        testImplementation("io.mockk:mockk:1.13.5")
 
         // https
         implementation("io.micronaut:micronaut-jackson-databind")
@@ -64,9 +64,9 @@ subprojects {
         implementation("io.micronaut.reactor:micronaut-reactor-http-client")
 
         // coroutines
-        implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.4")
-        implementation("org.jetbrains.kotlinx:kotlinx-coroutines-reactive:1.6.4")
-        implementation("org.jetbrains.kotlinx:kotlinx-coroutines-reactor:1.6.4")
+        implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.7.1")
+        implementation("org.jetbrains.kotlinx:kotlinx-coroutines-reactive:1.7.1")
+        implementation("org.jetbrains.kotlinx:kotlinx-coroutines-reactor:1.7.1")
 
         // data
         kapt("io.micronaut.data:micronaut-data-processor")
@@ -78,18 +78,18 @@ subprojects {
     }
 
     java {
-        sourceCompatibility = JavaVersion.toVersion("18")
+        sourceCompatibility = JavaVersion.VERSION_19
     }
 
     tasks {
         compileKotlin {
             kotlinOptions {
-                jvmTarget = "18"
+                jvmTarget = "19"
             }
         }
         compileTestKotlin {
             kotlinOptions {
-                jvmTarget = "18"
+                jvmTarget = "19"
             }
         }
     }
@@ -136,7 +136,7 @@ jacoco {
 
 sonar {
     properties {
-        property("sonar.projectKey", "Black-Forrest-Development_open-col")
+        property("sonar.projectKey", "Black-Forrest-Development_open-colonization")
         property("sonar.organization", "black-forrest-development")
         property("sonar.host.url", "https://sonarcloud.io")
         property("sonar.sourceEncoding", "UTF-8")
