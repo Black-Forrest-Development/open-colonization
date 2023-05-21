@@ -3,11 +3,14 @@ package de.sambalmueslie.open.col.app.resource
 
 import com.fasterxml.jackson.databind.ObjectMapper
 import com.fasterxml.jackson.module.kotlin.readValue
+import de.sambalmueslie.open.col.app.common.findByIdOrNull
 import de.sambalmueslie.open.col.app.resource.api.Resource
 import de.sambalmueslie.open.col.app.resource.api.ResourceChangeRequest
 import de.sambalmueslie.open.col.app.resource.db.ResourceData
 import de.sambalmueslie.open.col.app.resource.db.ResourceRepository
 import io.micronaut.core.io.ResourceLoader
+import io.micronaut.data.model.Page
+import io.micronaut.data.model.Pageable
 import jakarta.inject.Singleton
 import org.slf4j.Logger
 import org.slf4j.LoggerFactory
@@ -34,6 +37,14 @@ class ResourceService(
 
     fun findByName(name: String): Resource? {
         return repository.findByName(name)?.convert()
+    }
+
+    fun get(id: Long): Resource? {
+        return repository.findByIdOrNull(id)?.convert()
+    }
+
+    fun getAll(pageable: Pageable): Page<Resource> {
+        return repository.findAll(pageable).map { it.convert() }
     }
 
 
