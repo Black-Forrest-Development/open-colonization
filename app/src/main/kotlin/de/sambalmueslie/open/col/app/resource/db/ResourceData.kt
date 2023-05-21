@@ -1,5 +1,6 @@
 package de.sambalmueslie.open.col.app.resource.db
 
+import de.sambalmueslie.open.col.app.resource.api.Resource
 import de.sambalmueslie.open.col.app.resource.api.ResourceChangeRequest
 import jakarta.persistence.*
 import java.time.LocalDateTime
@@ -12,6 +13,10 @@ data class ResourceData(
     @Column var created: LocalDateTime = LocalDateTime.now(),
     @Column var updated: LocalDateTime? = null
 ) {
+    fun convert(): Resource {
+        return Resource(id, name)
+    }
+
     companion object {
         fun create(request: ResourceChangeRequest): ResourceData {
             return ResourceData(0, request.name, LocalDateTime.now(), null)
