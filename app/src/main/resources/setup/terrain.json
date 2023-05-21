@@ -1,0 +1,602 @@
+[
+  {
+    "name": "PLAINS",
+    "production": [
+      {
+        "resource": "FOOD",
+        "forested": 3.0,
+        "woodless": 4.0
+      },
+      {
+        "resource": "SUGAR",
+        "forested": 0.0,
+        "woodless": 0.0
+      },
+      {
+        "resource": "TOBACCO",
+        "forested": 1.0,
+        "woodless": 1.0
+      },
+      {
+        "resource": "COTTON",
+        "forested": 1.0,
+        "woodless": 2.0
+      },
+      {
+        "resource": "FUR",
+        "forested": 3.0,
+        "woodless": 0.0
+      },
+      {
+        "resource": "LUMBER",
+        "forested": 6.0,
+        "woodless": 0.0
+      },
+      {
+        "resource": "ORE",
+        "forested": 0.0,
+        "woodless": 0.0
+      },
+      {
+        "resource": "SILVER",
+        "forested": 0.0,
+        "woodless": 0.0
+      },
+      {
+        "resource": "FISH",
+        "forested": 0.0,
+        "woodless": 0.0
+      }
+    ]
+  },
+  {
+    "name": "GRASSLANDS",
+    "production": [
+      {
+        "resource": "FOOD",
+        "forested": 3.0,
+        "woodless": 4.0
+      },
+      {
+        "resource": "SUGAR",
+        "forested": 0.0,
+        "woodless": 1.0
+      },
+      {
+        "resource": "TOBACCO",
+        "forested": 1.0,
+        "woodless": 3.0
+      },
+      {
+        "resource": "COTTON",
+        "forested": 1.0,
+        "woodless": 2.0
+      },
+      {
+        "resource": "FUR",
+        "forested": 2.0,
+        "woodless": 0.0
+      },
+      {
+        "resource": "LUMBER",
+        "forested": 6.0,
+        "woodless": 0.0
+      },
+      {
+        "resource": "ORE",
+        "forested": 0.0,
+        "woodless": 0.0
+      },
+      {
+        "resource": "SILVER",
+        "forested": 0.0,
+        "woodless": 0.0
+      },
+      {
+        "resource": "FISH",
+        "forested": 0.0,
+        "woodless": 0.0
+      }
+    ]
+  },
+  {
+    "name": "PRAIRIE",
+    "production": [
+      {
+        "resource": "FOOD",
+        "forested": 3.0,
+        "woodless": 4.0
+      },
+      {
+        "resource": "SUGAR",
+        "forested": 0.0,
+        "woodless": 0.0
+      },
+      {
+        "resource": "TOBACCO",
+        "forested": 1.0,
+        "woodless": 2.0
+      },
+      {
+        "resource": "COTTON",
+        "forested": 1.0,
+        "woodless": 3.0
+      },
+      {
+        "resource": "FUR",
+        "forested": 2.0,
+        "woodless": 0.0
+      },
+      {
+        "resource": "LUMBER",
+        "forested": 4.0,
+        "woodless": 0.0
+      },
+      {
+        "resource": "ORE",
+        "forested": 0.0,
+        "woodless": 0.0
+      },
+      {
+        "resource": "SILVER",
+        "forested": 0.0,
+        "woodless": 0.0
+      },
+      {
+        "resource": "FISH",
+        "forested": 0.0,
+        "woodless": 0.0
+      }
+    ]
+  },
+  {
+    "name": "SAVANNAH",
+    "production": [
+      {
+        "resource": "FOOD",
+        "forested": 3.0,
+        "woodless": 4.0
+      },
+      {
+        "resource": "SUGAR",
+        "forested": 1.0,
+        "woodless": 3.0
+      },
+      {
+        "resource": "TOBACCO",
+        "forested": 1.0,
+        "woodless": 2.0
+      },
+      {
+        "resource": "COTTON",
+        "forested": 1.0,
+        "woodless": 3.0
+      },
+      {
+        "resource": "FUR",
+        "forested": 2.0,
+        "woodless": 0.0
+      },
+      {
+        "resource": "LUMBER",
+        "forested": 4.0,
+        "woodless": 0.0
+      },
+      {
+        "resource": "ORE",
+        "forested": 0.0,
+        "woodless": 0.0
+      },
+      {
+        "resource": "SILVER",
+        "forested": 0.0,
+        "woodless": 0.0
+      },
+      {
+        "resource": "FISH",
+        "forested": 0.0,
+        "woodless": 0.0
+      }
+    ]
+  },
+  {
+    "name": "MARSH",
+    "production": [
+      {
+        "resource": "FOOD",
+        "forested": 2.0,
+        "woodless": 3.0
+      },
+      {
+        "resource": "SUGAR",
+        "forested": 1.0,
+        "woodless": 1.0
+      },
+      {
+        "resource": "TOBACCO",
+        "forested": 2.0,
+        "woodless": 3.0
+      },
+      {
+        "resource": "COTTON",
+        "forested": 0.0,
+        "woodless": 0.0
+      },
+      {
+        "resource": "FUR",
+        "forested": 2.0,
+        "woodless": 0.0
+      },
+      {
+        "resource": "LUMBER",
+        "forested": 4.0,
+        "woodless": 0.0
+      },
+      {
+        "resource": "ORE",
+        "forested": 2.0,
+        "woodless": 3.0
+      },
+      {
+        "resource": "SILVER",
+        "forested": 0.0,
+        "woodless": 0.0
+      },
+      {
+        "resource": "FISH",
+        "forested": 0.0,
+        "woodless": 0.0
+      }
+    ]
+  },
+  {
+    "name": "SWAMP",
+    "production": [
+      {
+        "resource": "FOOD",
+        "forested": 2.0,
+        "woodless": 3.0
+      },
+      {
+        "resource": "SUGAR",
+        "forested": 2.0,
+        "woodless": 3.0
+      },
+      {
+        "resource": "TOBACCO",
+        "forested": 0.0,
+        "woodless": 1.0
+      },
+      {
+        "resource": "COTTON",
+        "forested": 0.0,
+        "woodless": 0.0
+      },
+      {
+        "resource": "FUR",
+        "forested": 0.0,
+        "woodless": 0.0
+      },
+      {
+        "resource": "LUMBER",
+        "forested": 4.0,
+        "woodless": 0.0
+      },
+      {
+        "resource": "ORE",
+        "forested": 0.0,
+        "woodless": 0.0
+      },
+      {
+        "resource": "SILVER",
+        "forested": 0.0,
+        "woodless": 0.0
+      },
+      {
+        "resource": "FISH",
+        "forested": 0.0,
+        "woodless": 0.0
+      }
+    ]
+  },
+  {
+    "name": "DESERT",
+    "production": [
+      {
+        "resource": "FOOD",
+        "forested": 2.0,
+        "woodless": 2.0
+      },
+      {
+        "resource": "SUGAR",
+        "forested": 0.0,
+        "woodless": 0.0
+      },
+      {
+        "resource": "TOBACCO",
+        "forested": 0.0,
+        "woodless": 1.0
+      },
+      {
+        "resource": "COTTON",
+        "forested": 1.0,
+        "woodless": 1.0
+      },
+      {
+        "resource": "FUR",
+        "forested": 2.0,
+        "woodless": 0.0
+      },
+      {
+        "resource": "LUMBER",
+        "forested": 2.0,
+        "woodless": 0.0
+      },
+      {
+        "resource": "ORE",
+        "forested": 1.0,
+        "woodless": 2.0
+      },
+      {
+        "resource": "SILVER",
+        "forested": 0.0,
+        "woodless": 0.0
+      },
+      {
+        "resource": "FISH",
+        "forested": 0.0,
+        "woodless": 0.0
+      }
+    ]
+  },
+  {
+    "name": "TUNDRA",
+    "production": [
+      {
+        "resource": "FOOD",
+        "forested": 2.0,
+        "woodless": 3.0
+      },
+      {
+        "resource": "SUGAR",
+        "forested": 0.0,
+        "woodless": 0.0
+      },
+      {
+        "resource": "TOBACCO",
+        "forested": 0.0,
+        "woodless": 0.0
+      },
+      {
+        "resource": "COTTON",
+        "forested": 0.0,
+        "woodless": 0.0
+      },
+      {
+        "resource": "FUR",
+        "forested": 3.0,
+        "woodless": 0.0
+      },
+      {
+        "resource": "LUMBER",
+        "forested": 4.0,
+        "woodless": 0.0
+      },
+      {
+        "resource": "ORE",
+        "forested": 1.0,
+        "woodless": 2.0
+      },
+      {
+        "resource": "SILVER",
+        "forested": 0.0,
+        "woodless": 0.0
+      },
+      {
+        "resource": "FISH",
+        "forested": 0.0,
+        "woodless": 0.0
+      }
+    ]
+  },
+  {
+    "name": "ARCTIC",
+    "production": [
+      {
+        "resource": "FOOD",
+        "forested": 0.0,
+        "woodless": 0.0
+      },
+      {
+        "resource": "SUGAR",
+        "forested": 0.0,
+        "woodless": 0.0
+      },
+      {
+        "resource": "TOBACCO",
+        "forested": 0.0,
+        "woodless": 0.0
+      },
+      {
+        "resource": "COTTON",
+        "forested": 0.0,
+        "woodless": 0.0
+      },
+      {
+        "resource": "FUR",
+        "forested": 0.0,
+        "woodless": 0.0
+      },
+      {
+        "resource": "LUMBER",
+        "forested": 0.0,
+        "woodless": 0.0
+      },
+      {
+        "resource": "ORE",
+        "forested": 0.0,
+        "woodless": 0.0
+      },
+      {
+        "resource": "SILVER",
+        "forested": 0.0,
+        "woodless": 0.0
+      },
+      {
+        "resource": "FISH",
+        "forested": 0.0,
+        "woodless": 0.0
+      }
+    ]
+  },
+  {
+    "name": "HILLS",
+    "production": [
+      {
+        "resource": "FOOD",
+        "forested": 2.0,
+        "woodless": 2.0
+      },
+      {
+        "resource": "SUGAR",
+        "forested": 0.0,
+        "woodless": 0.0
+      },
+      {
+        "resource": "TOBACCO",
+        "forested": 0.0,
+        "woodless": 0.0
+      },
+      {
+        "resource": "COTTON",
+        "forested": 0.0,
+        "woodless": 0.0
+      },
+      {
+        "resource": "FUR",
+        "forested": 0.0,
+        "woodless": 0.0
+      },
+      {
+        "resource": "LUMBER",
+        "forested": 0.0,
+        "woodless": 0.0
+      },
+      {
+        "resource": "ORE",
+        "forested": 4.0,
+        "woodless": 4.0
+      },
+      {
+        "resource": "SILVER",
+        "forested": 0.0,
+        "woodless": 0.0
+      },
+      {
+        "resource": "FISH",
+        "forested": 0.0,
+        "woodless": 0.0
+      }
+    ]
+  },
+  {
+    "name": "MOUNTAINS",
+    "production": [
+      {
+        "resource": "FOOD",
+        "forested": 0.0,
+        "woodless": 0.0
+      },
+      {
+        "resource": "SUGAR",
+        "forested": 0.0,
+        "woodless": 0.0
+      },
+      {
+        "resource": "TOBACCO",
+        "forested": 0.0,
+        "woodless": 0.0
+      },
+      {
+        "resource": "COTTON",
+        "forested": 0.0,
+        "woodless": 0.0
+      },
+      {
+        "resource": "FUR",
+        "forested": 0.0,
+        "woodless": 0.0
+      },
+      {
+        "resource": "LUMBER",
+        "forested": 0.0,
+        "woodless": 0.0
+      },
+      {
+        "resource": "ORE",
+        "forested": 3.0,
+        "woodless": 3.0
+      },
+      {
+        "resource": "SILVER",
+        "forested": 1.0,
+        "woodless": 1.0
+      },
+      {
+        "resource": "FISH",
+        "forested": 0.0,
+        "woodless": 0.0
+      }
+    ]
+  },
+  {
+    "name": "OCEAN",
+    "production": [
+      {
+        "resource": "FOOD",
+        "forested": 0.0,
+        "woodless": 0.0
+      },
+      {
+        "resource": "SUGAR",
+        "forested": 0.0,
+        "woodless": 0.0
+      },
+      {
+        "resource": "TOBACCO",
+        "forested": 0.0,
+        "woodless": 0.0
+      },
+      {
+        "resource": "COTTON",
+        "forested": 0.0,
+        "woodless": 0.0
+      },
+      {
+        "resource": "FUR",
+        "forested": 0.0,
+        "woodless": 0.0
+      },
+      {
+        "resource": "LUMBER",
+        "forested": 0.0,
+        "woodless": 0.0
+      },
+      {
+        "resource": "ORE",
+        "forested": 0.0,
+        "woodless": 0.0
+      },
+      {
+        "resource": "SILVER",
+        "forested": 0.0,
+        "woodless": 0.0
+      },
+      {
+        "resource": "FISH",
+        "forested": 3.0,
+        "woodless": 3.0
+      }
+    ]
+  }
+]
