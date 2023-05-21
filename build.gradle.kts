@@ -78,18 +78,18 @@ subprojects {
     }
 
     java {
-        sourceCompatibility = JavaVersion.toVersion("18")
+        sourceCompatibility = JavaVersion.VERSION_19
     }
 
     tasks {
         compileKotlin {
             kotlinOptions {
-                jvmTarget = "18"
+                jvmTarget = "19"
             }
         }
         compileTestKotlin {
             kotlinOptions {
-                jvmTarget = "18"
+                jvmTarget = "19"
             }
         }
     }
@@ -136,7 +136,7 @@ jacoco {
 
 sonar {
     properties {
-        property("sonar.projectKey", "Black-Forrest-Development_open-col")
+        property("sonar.projectKey", "Black-Forrest-Development_open-colonization")
         property("sonar.organization", "black-forrest-development")
         property("sonar.host.url", "https://sonarcloud.io")
         property("sonar.sourceEncoding", "UTF-8")
