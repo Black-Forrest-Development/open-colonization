@@ -1,13 +1,7 @@
 package de.sambalmueslie.open.col.app.world.api
 
-import io.micronaut.data.model.Page
-import io.micronaut.data.model.Pageable
-import io.micronaut.http.HttpResponse
+import de.sambalmueslie.open.col.app.common.CrudAPI
 
-interface WorldAPI {
-    fun create(request: WorldChangeRequest): HttpResponse<String>
-    fun get(id: Long): World?
+interface WorldAPI : CrudAPI<Long, World, WorldChangeRequest> {
     fun findByName(name: String): World?
-    fun getAll(pageable: Pageable): Page<World>
-
 }

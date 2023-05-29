@@ -10,5 +10,6 @@ import io.micronaut.data.repository.PageableRepository
 interface ResourceRepository : PageableRepository<ResourceData, Long> {
 
     fun findByName(name: String): ResourceData?
+    fun deleteByWorldId(worldId: Long)
 
 }

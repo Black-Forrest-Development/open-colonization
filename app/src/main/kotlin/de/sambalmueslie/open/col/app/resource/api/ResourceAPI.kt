@@ -1,12 +1,7 @@
 package de.sambalmueslie.open.col.app.resource.api
 
-import io.micronaut.data.model.Page
-import io.micronaut.data.model.Pageable
-import io.micronaut.http.HttpResponse
+import de.sambalmueslie.open.col.app.common.ReadAPI
 
-interface ResourceAPI {
-    fun get(id: Long): Resource?
+interface ResourceAPI : ReadAPI<Long, Resource> {
     fun findByName(name: String): Resource?
-    fun getAll(pageable: Pageable): Page<Resource>
-
 }

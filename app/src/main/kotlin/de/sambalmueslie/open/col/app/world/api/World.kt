@@ -1,6 +1,8 @@
 package de.sambalmueslie.open.col.app.world.api
 
+import de.sambalmueslie.open.col.app.common.BusinessObject
+
 data class World(
-    val id: Long,
+    override val id: Long,
     val name: String
-)
+) : BusinessObject<Long>

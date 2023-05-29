@@ -1,9 +1,11 @@
 package de.sambalmueslie.open.col.app.tile.api
 
+import de.sambalmueslie.open.col.app.common.BusinessObject
+
 data class TileMap(
-    val id: Long,
+    override val id: Long,
     val width: Int,
     val height: Int,
 
     val worldId: Long
-)
+) : BusinessObject<Long>

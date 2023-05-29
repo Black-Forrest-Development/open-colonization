@@ -1,5 +1,6 @@
 package de.sambalmueslie.open.col.app.resource.db
 
+import de.sambalmueslie.open.col.app.common.DataObject
 import de.sambalmueslie.open.col.app.resource.api.Resource
 import de.sambalmueslie.open.col.app.resource.api.ResourceChangeRequest
 import de.sambalmueslie.open.col.app.world.api.World
@@ -15,14 +16,16 @@ data class ResourceData(
     @Column var name: String = "",
     @Column var created: LocalDateTime = LocalDateTime.now(),
     @Column var updated: LocalDateTime? = null
-) {
-    fun convert(): Resource {
-        return Resource(id, name)
-    }
+) : DataObject<Resource> {
 
     companion object {
         fun create(world: World, request: ResourceChangeRequest): ResourceData {
             return ResourceData(0, world.id, request.name, LocalDateTime.now(), null)
         }
     }
+
+    override fun convert(): Resource {
+        return Resource(id, name)
+    }
+
 }

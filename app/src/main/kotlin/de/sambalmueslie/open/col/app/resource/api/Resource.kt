@@ -1,7 +1,9 @@
 package de.sambalmueslie.open.col.app.resource.api
 
+import de.sambalmueslie.open.col.app.common.BusinessObject
+
 
 data class Resource(
-    val id: Long,
+    override val id: Long,
     val name: String
-)
+) : BusinessObject<Long>

@@ -1,13 +1,13 @@
 package de.sambalmueslie.open.col.app.player
 
 
-import de.sambalmueslie.open.col.app.common.InvalidRequestException
 import de.sambalmueslie.open.col.app.common.findByIdOrNull
 import de.sambalmueslie.open.col.app.player.api.Player
 import de.sambalmueslie.open.col.app.player.api.PlayerChangeRequest
 import de.sambalmueslie.open.col.app.player.db.PlayerData
 import de.sambalmueslie.open.col.app.player.db.PlayerRepository
 import de.sambalmueslie.open.col.app.world.WorldService
+import de.sambalmueslie.openbooking.error.InvalidRequestException
 import io.micronaut.data.model.Page
 import io.micronaut.data.model.Pageable
 import jakarta.inject.Singleton

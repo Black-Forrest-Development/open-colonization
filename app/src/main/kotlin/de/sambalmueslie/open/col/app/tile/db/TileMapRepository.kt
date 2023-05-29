@@ -9,6 +9,6 @@ import io.micronaut.data.repository.PageableRepository
 @JdbcRepository(dialect = Dialect.POSTGRES)
 interface TileMapRepository : PageableRepository<TileMapData, Long> {
 
-    fun findByWorldId(worldId: Long): List<TileMapData>
+    fun findByWorldId(worldId: Long): TileMapData?
     fun findByWorldIdIn(wIds: Set<Long>): List<TileMapData>
 }

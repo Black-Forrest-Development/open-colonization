@@ -74,7 +74,7 @@ CREATE TABLE tile_map
     width    INT                         NOT NULL,
     height   INT                         NOT NULL,
 
-    world_id BIGINT                      NOT NULL REFERENCES world,
+    world_id BIGINT                      NOT NULL UNIQUE REFERENCES world,
 
     created  TIMESTAMP WITHOUT TIME ZONE NOT NULL,
     updated  TIMESTAMP WITHOUT TIME ZONE

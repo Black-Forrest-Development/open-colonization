@@ -5,10 +5,8 @@ import de.sambalmueslie.open.col.app.resource.api.Resource
 import de.sambalmueslie.open.col.app.resource.api.ResourceAPI
 import io.micronaut.data.model.Page
 import io.micronaut.data.model.Pageable
-import io.micronaut.http.HttpResponse
 import io.micronaut.http.annotation.Controller
 import io.micronaut.http.annotation.Get
-import io.micronaut.http.annotation.Post
 import io.micronaut.http.annotation.QueryValue
 import io.swagger.v3.oas.annotations.tags.Tag
 

@@ -6,17 +6,25 @@ import de.sambalmueslie.open.col.app.world.api.WorldAPI
 import de.sambalmueslie.open.col.app.world.api.WorldChangeRequest
 import io.micronaut.data.model.Page
 import io.micronaut.data.model.Pageable
-import io.micronaut.http.HttpResponse
 import io.micronaut.http.annotation.*
 import io.swagger.v3.oas.annotations.tags.Tag
 
 @Controller("/api/world")
 @Tag(name = "World API")
 class WorldController(private val service: WorldService) : WorldAPI {
-    @Post("/setup")
-    override fun create(@Body request: WorldChangeRequest): HttpResponse<String> {
-        service.create(request)
-        return HttpResponse.created("")
+    @Post()
+    override fun create(@Body request: WorldChangeRequest): World {
+        return service.create(request)
+    }
+
+    @Put("/{id}")
+    override fun update(id: Long, @Body request: WorldChangeRequest): World {
+        return service.update(id, request)
+    }
+
+    @Delete("/{id}")
+    override fun delete(id: Long): World? {
+        return service.delete(id)
     }
 
     @Get("/{id}")
