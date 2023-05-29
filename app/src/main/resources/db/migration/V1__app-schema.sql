@@ -9,6 +9,20 @@ CREATE TABLE world
     updated TIMESTAMP WITHOUT TIME ZONE
 );
 
+-- player table
+CREATE SEQUENCE player_seq;
+CREATE TABLE player
+(
+    id       BIGINT                      NOT NULL PRIMARY KEY DEFAULT nextval('world_seq'::regclass),
+    name     VARCHAR(255)                NOT NULL UNIQUE,
+
+    world_id BIGINT                      NOT NULL REFERENCES world,
+
+    created  TIMESTAMP WITHOUT TIME ZONE NOT NULL,
+    updated  TIMESTAMP WITHOUT TIME ZONE
+);
+
+
 -- resource
 CREATE SEQUENCE resource_seq;
 CREATE TABLE resource
@@ -80,10 +94,12 @@ CREATE TABLE tile_layer
 
 CREATE TABLE tile_terrain
 (
-    id_coordinate_x INT PRIMARY KEY,
-    id_coordinate_y INT PRIMARY KEY,
+    coordinate_x INT    NOT NULL,
+    coordinate_y INT    NOT NULL,
 
     layer_id        BIGINT NOT NULL REFERENCES tile_layer,
-    terrain_id      BIGINT NOT NULL REFERENCES terrain
+    terrain_id      BIGINT NOT NULL REFERENCES terrain,
+
+    PRIMARY KEY (coordinate_x, coordinate_y)
 );
 

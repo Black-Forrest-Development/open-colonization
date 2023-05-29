@@ -27,11 +27,14 @@ class WorldService(
         private val logger: Logger = LoggerFactory.getLogger(WorldService::class.java)
     }
 
-    fun create(request: WorldChangeRequest) {
+    fun create(request: WorldChangeRequest): World {
+        logger.info("Create world $request")
         val world = repository.save(WorldData.create(request)).convert()
 
         resourceService.setup(world)
         terrainService.setup(world)
+
+        return world
     }
 
     fun get(id: Long): World? {
