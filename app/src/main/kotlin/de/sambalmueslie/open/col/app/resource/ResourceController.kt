@@ -18,12 +18,6 @@ class ResourceController(
     private val service: ResourceService
 ) : ResourceAPI {
 
-    @Post("/setup")
-    override fun setup(): HttpResponse<String> {
-        service.setup()
-        return HttpResponse.created("")
-    }
-
     @Get("/{id}")
     override fun get(id: Long): Resource? {
         return service.get(id)

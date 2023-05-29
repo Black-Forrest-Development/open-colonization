@@ -3,6 +3,7 @@ package de.sambalmueslie.open.col.app.terrain.db
 import de.sambalmueslie.open.col.app.engine.api.ResourceProduction
 import de.sambalmueslie.open.col.app.terrain.api.Terrain
 import de.sambalmueslie.open.col.app.terrain.api.TerrainChangeRequest
+import de.sambalmueslie.open.col.app.world.api.World
 import jakarta.persistence.*
 import java.time.LocalDateTime
 
@@ -10,8 +11,8 @@ import java.time.LocalDateTime
 @Table(name = "terrain")
 data class TerrainData(
     @Id @GeneratedValue(strategy = GenerationType.SEQUENCE) var id: Long = 0,
+    @Column val worldId: Long,
     @Column var name: String = "",
-
 
     @Column var created: LocalDateTime = LocalDateTime.now(),
     @Column var updated: LocalDateTime? = null
@@ -21,8 +22,8 @@ data class TerrainData(
     }
 
     companion object {
-        fun create(request: TerrainChangeRequest): TerrainData {
-            return TerrainData(0, request.name, LocalDateTime.now(), null)
+        fun create(world: World, request: TerrainChangeRequest): TerrainData {
+            return TerrainData(0, world.id, request.name, LocalDateTime.now(), null)
         }
     }
 }

@@ -1,15 +1,12 @@
 package de.sambalmueslie.open.col.app.terrain
 
 
-import de.sambalmueslie.open.col.app.resource.api.Resource
 import de.sambalmueslie.open.col.app.terrain.api.Terrain
 import de.sambalmueslie.open.col.app.terrain.api.TerrainAPI
 import io.micronaut.data.model.Page
 import io.micronaut.data.model.Pageable
-import io.micronaut.http.HttpResponse
 import io.micronaut.http.annotation.Controller
 import io.micronaut.http.annotation.Get
-import io.micronaut.http.annotation.Post
 import io.micronaut.http.annotation.QueryValue
 import io.swagger.v3.oas.annotations.tags.Tag
 
@@ -18,11 +15,6 @@ import io.swagger.v3.oas.annotations.tags.Tag
 class TerrainController(
     private val service: TerrainService
 ) : TerrainAPI {
-    @Post("/setup")
-    override fun setup(): HttpResponse<String> {
-        service.setup()
-        return HttpResponse.created("")
-    }
 
     @Get("/{id}")
     override fun get(id: Long): Terrain? {

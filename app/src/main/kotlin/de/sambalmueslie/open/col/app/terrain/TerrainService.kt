@@ -12,6 +12,7 @@ import de.sambalmueslie.open.col.app.terrain.db.TerrainData
 import de.sambalmueslie.open.col.app.terrain.db.TerrainProductionData
 import de.sambalmueslie.open.col.app.terrain.db.TerrainProductionRepository
 import de.sambalmueslie.open.col.app.terrain.db.TerrainRepository
+import de.sambalmueslie.open.col.app.world.api.World
 import io.micronaut.core.io.ResourceLoader
 import io.micronaut.data.model.Page
 import io.micronaut.data.model.Pageable
@@ -34,8 +35,8 @@ class TerrainService(
         private val logger: Logger = LoggerFactory.getLogger(TerrainService::class.java)
     }
 
-    fun setup() {
-        logger.info("Run initial setup")
+    fun setup(world: World) {
+        logger.info("[${world.id}] Run initial setup")
         productionRepository.deleteAll()
         repository.deleteAll()
         val rawData = loader.getResourceAsStream("setup/terrain.json").get()
@@ -43,7 +44,7 @@ class TerrainService(
         if (data.isEmpty()) return
 
         data.forEach { req ->
-            val d = repository.save(TerrainData.create(req))
+            val d = repository.save(TerrainData.create(world, req))
             productionRepository.saveAll(
                 req.production.mapNotNull {
                     val r = resourceService.findByName(it.resource) ?: return@mapNotNull null
