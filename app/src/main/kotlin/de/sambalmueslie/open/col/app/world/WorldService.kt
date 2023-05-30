@@ -23,7 +23,7 @@ class WorldService(
         private val logger: Logger = LoggerFactory.getLogger(WorldService::class.java)
     }
 
-    override fun createData(request: WorldChangeRequest): WorldData {
+    override fun createData(request: WorldChangeRequest, properties: Map<String, Any>): WorldData {
         logger.info("Create world $request")
         return WorldData.create(request)
     }

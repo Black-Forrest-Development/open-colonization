@@ -1,11 +1,10 @@
 package de.sambalmueslie.open.col.app.tile
 
 
-import de.sambalmueslie.open.col.app.tile.api.TerrainTile
-import de.sambalmueslie.open.col.app.tile.api.TileLayerType
-import de.sambalmueslie.open.col.app.tile.db.TerrainTileRepository
-import de.sambalmueslie.open.col.app.tile.db.TileLayerRepository
-import de.sambalmueslie.open.col.app.tile.db.TileMapRepository
+import de.sambalmueslie.open.col.app.common.findByIdOrNull
+import de.sambalmueslie.open.col.app.terrain.TerrainService
+import de.sambalmueslie.open.col.app.tile.api.*
+import de.sambalmueslie.open.col.app.tile.db.*
 import de.sambalmueslie.open.col.app.world.api.World
 import io.micronaut.data.model.Page
 import io.micronaut.data.model.Pageable
@@ -17,7 +16,8 @@ import org.slf4j.LoggerFactory
 class TileMapService(
     private val repository: TileMapRepository,
     private val layerRepository: TileLayerRepository,
-    private val terrainTileRepository: TerrainTileRepository
+    private val terrainTileRepository: TerrainTileRepository,
+    private val terrainService: TerrainService
 ) {
 
     companion object {
@@ -31,5 +31,31 @@ class TileMapService(
         return terrainTileRepository.findByLayerId(layer.id, pageable).map { it.convert() }
     }
 
+    fun delete(world: World) {
+        val map = repository.findByWorldId(world.id) ?: return
+        val layer = layerRepository.findByMapId(map.id)
+        layer.forEach { terrainTileRepository.deleteByLayerId(it.id) }
+        layerRepository.deleteAll(layer)
+        repository.delete(map)
+    }
 
+    fun create(world: World, request: TileMapChangeRequest): TileMap {
+        val map = repository.save(TileMapData.create(world, request))
+        layerRepository.saveAll(request.layer.map { TileLayerData.create(map, it) })
+        return map.convert()
+    }
+
+    fun create(map: TileMap, request: TerrainTileChangeRequest) {
+        val layer = layerRepository.findOneByMapIdAndType(map.id, TileLayerType.TERRAIN) ?: return
+        val terrain = terrainService.findByName(request.terrain) ?: return
+        terrainTileRepository.save(TerrainTileData.create(layer, terrain, request.coordinate))
+    }
+
+    fun get(id: Long): TileMap? {
+        return repository.findByIdOrNull(id)?.convert()
+    }
+
+    fun getAll(pageable: Pageable): Page<TileMap> {
+        return repository.findAll(pageable).map { it.convert() }
+    }
 }

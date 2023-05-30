@@ -23,7 +23,7 @@ class ResourceController(
 
     @Get("/find/by/name")
     override fun findByName(@QueryValue name: String): Resource? {
-       return service.findByName(name)
+        return service.findByName(name)
     }
 
     @Get()

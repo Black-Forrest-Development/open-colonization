@@ -2,6 +2,8 @@ package de.sambalmueslie.open.col.app.resource.db
 
 import io.micronaut.data.annotation.Repository
 import io.micronaut.data.jdbc.annotation.JdbcRepository
+import io.micronaut.data.model.Page
+import io.micronaut.data.model.Pageable
 import io.micronaut.data.model.query.builder.sql.Dialect
 import io.micronaut.data.repository.PageableRepository
 
@@ -10,6 +12,6 @@ import io.micronaut.data.repository.PageableRepository
 interface ResourceRepository : PageableRepository<ResourceData, Long> {
 
     fun findByName(name: String): ResourceData?
-    fun deleteByWorldId(worldId: Long)
+    fun findByWorldId(id: Long, pageable: Pageable): Page<ResourceData>
 
 }

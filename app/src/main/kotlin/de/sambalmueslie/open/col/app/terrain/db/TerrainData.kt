@@ -17,13 +17,21 @@ data class TerrainData(
     @Column var created: LocalDateTime = LocalDateTime.now(),
     @Column var updated: LocalDateTime? = null
 ) {
-    fun convert(production: List<ResourceProduction>): Terrain {
-        return Terrain(id, name, production)
-    }
 
     companion object {
         fun create(world: World, request: TerrainChangeRequest): TerrainData {
             return TerrainData(0, world.id, request.name, LocalDateTime.now(), null)
         }
+    }
+
+
+    fun convert(production: List<ResourceProduction>): Terrain {
+        return Terrain(id, name, production)
+    }
+
+    fun update(request: TerrainChangeRequest): TerrainData {
+        name = request.name
+        updated = LocalDateTime.now()
+        return this
     }
 }

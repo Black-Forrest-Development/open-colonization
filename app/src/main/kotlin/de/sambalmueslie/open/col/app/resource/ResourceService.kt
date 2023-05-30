@@ -1,17 +1,15 @@
 package de.sambalmueslie.open.col.app.resource
 
 
-import com.fasterxml.jackson.databind.ObjectMapper
 import de.sambalmueslie.open.col.app.cache.CacheService
 import de.sambalmueslie.open.col.app.common.GenericCrudService
+import de.sambalmueslie.open.col.app.common.PageableSequence
 import de.sambalmueslie.open.col.app.resource.api.Resource
 import de.sambalmueslie.open.col.app.resource.api.ResourceChangeRequest
 import de.sambalmueslie.open.col.app.resource.db.ResourceData
 import de.sambalmueslie.open.col.app.resource.db.ResourceRepository
-import de.sambalmueslie.open.col.app.world.WorldService
 import de.sambalmueslie.open.col.app.world.api.World
 import de.sambalmueslie.openbooking.error.InvalidRequestException
-import io.micronaut.core.io.ResourceLoader
 import jakarta.inject.Singleton
 import org.slf4j.Logger
 import org.slf4j.LoggerFactory
@@ -21,29 +19,27 @@ class ResourceService(
     private val repository: ResourceRepository,
     cacheService: CacheService,
 ) : GenericCrudService<Long, Resource, ResourceChangeRequest, ResourceData>(
-    repository,
-    cacheService,
-    Resource::class,
-    logger
+    repository, cacheService, Resource::class, logger
 ) {
 
     companion object {
         private val logger: Logger = LoggerFactory.getLogger(ResourceService::class.java)
-    }
-
-    fun create(world: World, request: List<ResourceChangeRequest>) {
-        repository.saveAll(request.map { ResourceData.create(world, it) })
-            .map { it.convert() }
-            .forEach { notifyCreated(it) }
+        private const val WORLD_REFERENCE = "world"
     }
 
 
-    override fun createData(request: ResourceChangeRequest): ResourceData {
-        TODO("Not yet implemented")
+    fun create(world: World, request: ResourceChangeRequest) {
+        create(request, mapOf(Pair(WORLD_REFERENCE, world)))
+    }
+
+
+    override fun createData(request: ResourceChangeRequest, properties: Map<String, Any>): ResourceData {
+        val world = properties.get(WORLD_REFERENCE) as? World ?: throw InvalidRequestException("Cannot find world")
+        return ResourceData.create(world, request)
     }
 
     override fun updateData(data: ResourceData, request: ResourceChangeRequest): ResourceData {
-        TODO("Not yet implemented")
+        return data.update(request)
     }
 
     override fun isValid(request: ResourceChangeRequest) {
@@ -55,7 +51,8 @@ class ResourceService(
     }
 
     fun delete(world: World) {
-        repository.deleteByWorldId(world.id)
+        val sequence = PageableSequence() { repository.findByWorldId(world.id, it) }
+        sequence.forEach { delete(it) }
     }
 
 

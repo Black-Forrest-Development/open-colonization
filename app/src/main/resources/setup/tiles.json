@@ -1,0 +1,66 @@
+[
+  {
+    "coordinate": {"x":  0, "y":  0},
+    "terrain": "PLAINS"
+  },
+  {
+    "coordinate": {"x":  1, "y":  0},
+    "terrain": "GRASSLANDS"
+  },
+  {
+    "coordinate": {"x":  2, "y":  0},
+    "terrain": "PRAIRIE"
+  },
+  {
+    "coordinate": {"x":  3, "y":  0},
+    "terrain": "SAVANNAH"
+  },
+  {
+    "coordinate": {"x":  0, "y":  1},
+    "terrain": "MARSH"
+  },
+  {
+    "coordinate": {"x":  1, "y":  1},
+    "terrain": "SWAMP"
+  },
+  {
+    "coordinate": {"x":  2, "y":  1},
+    "terrain": "DESERT"
+  },
+  {
+    "coordinate": {"x":  3, "y":  1},
+    "terrain": "TUNDRA"
+  },
+  {
+    "coordinate": {"x":  0, "y":  2},
+    "terrain": "ARCTIC"
+  },
+  {
+    "coordinate": {"x":  1, "y":  2},
+    "terrain": "HILLS"
+  },
+  {
+    "coordinate": {"x":  2, "y":  2},
+    "terrain": "MOUNTAINS"
+  },
+  {
+    "coordinate": {"x":  3, "y":  2},
+    "terrain": "OCEAN"
+  },
+  {
+    "coordinate": {"x":  0, "y":  3},
+    "terrain": "PLAINS"
+  },
+  {
+    "coordinate": {"x":  1, "y":  3},
+    "terrain": "PLAINS"
+  },
+  {
+    "coordinate": {"x":  2, "y":  3},
+    "terrain": "PLAINS"
+  },
+  {
+    "coordinate": {"x":  3, "y":  3},
+    "terrain": "PLAINS"
+  }
+]

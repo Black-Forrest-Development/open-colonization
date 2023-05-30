@@ -28,4 +28,10 @@ data class ResourceData(
         return Resource(id, name)
     }
 
+    fun update(request: ResourceChangeRequest): ResourceData {
+        name = request.name
+        updated = LocalDateTime.now()
+        return this
+    }
+
 }

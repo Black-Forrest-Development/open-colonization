@@ -12,5 +12,5 @@ import io.micronaut.data.repository.PageableRepository
 @JdbcRepository(dialect = Dialect.POSTGRES)
 interface TerrainTileRepository : PageableRepository<TerrainTileData, Coordinate> {
     fun findByLayerId(layerId: Long, pageable: Pageable): Page<TerrainTileData>
-
+    fun deleteByLayerId(layerId: Long)
 }

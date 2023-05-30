@@ -31,7 +31,7 @@ class EngineService(
     }
 
     private fun updateWorld(context: EngineContext) {
-        logger.info("[${context.world.id}|${context.timestamp}] Run engine")
+        logger.info("[${context.world.id}|${context.timestamp}] World start update")
         val duration = measureTimeMillis {
             systems.forEach {
                 val duration = measureTimeMillis {
@@ -50,6 +50,6 @@ class EngineService(
 
 
     private fun handleWorldExecution(context: EngineContext, duration: Long) {
-        logger.info("[${context.world.id}|${context.timestamp}] - took $duration ms.")
+        logger.info("[${context.world.id}|${context.timestamp}] World finished after $duration ms.")
     }
 }

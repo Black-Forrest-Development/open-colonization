@@ -35,18 +35,18 @@ abstract class GenericCrudService<T : Any, O : BusinessObject<T>, R : BusinessOb
         return repository.findAll(pageable).map { it.convert() }
     }
 
-    override fun create(request: R): O {
+    override fun create(request: R, properties: Map<String, Any>): O {
         isValid(request)
         val existing = existing(request)
         if (existing != null) return existing.convert()
 
-        val result = repository.save(createData(request)).convert()
+        val result = repository.save(createData(request, properties)).convert()
         cache.put(result.id, result)
         notifyCreated(result)
         return result
     }
 
-    protected abstract fun createData(request: R): D
+    protected abstract fun createData(request: R, properties: Map<String, Any>): D
 
     override fun update(id: T, request: R): O {
         val data = repository.findByIdOrNull(id) ?: return create(request)
