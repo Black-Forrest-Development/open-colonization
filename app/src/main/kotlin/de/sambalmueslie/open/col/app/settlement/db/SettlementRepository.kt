@@ -1,4 +1,4 @@
-package de.sambalmueslie.open.col.app.tile.db
+package de.sambalmueslie.open.col.app.settlement.db
 
 import de.sambalmueslie.open.col.app.tile.api.Coordinate
 import io.micronaut.data.annotation.Repository
@@ -10,8 +10,9 @@ import io.micronaut.data.repository.PageableRepository
 
 @Repository
 @JdbcRepository(dialect = Dialect.POSTGRES)
-interface TerrainTileRepository : PageableRepository<TerrainTileData, Long> {
-    fun findByLayerId(layerId: Long, pageable: Pageable): Page<TerrainTileData>
-    fun findByLayerIdAndCoordinate(layerId: Long, coordinate: Coordinate): TerrainTileData?
-    fun deleteByLayerId(layerId: Long)
+interface SettlementRepository : PageableRepository<SettlementData, Long> {
+    fun findByWorldId(worldId: Long, pageable: Pageable): Page<SettlementData>
+
+    fun findByCoordinate(coordinate: Coordinate): SettlementData?
+
 }

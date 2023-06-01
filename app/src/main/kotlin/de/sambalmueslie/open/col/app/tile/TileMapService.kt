@@ -58,4 +58,10 @@ class TileMapService(
     fun getAll(pageable: Pageable): Page<TileMap> {
         return repository.findAll(pageable).map { it.convert() }
     }
+
+    fun getTerrainTile(world: World, coordinate: Coordinate): TerrainTile? {
+        val map = repository.findByWorldId(world.id) ?: return null
+        val layer = layerRepository.findOneByMapIdAndType(map.id, TileLayerType.TERRAIN) ?: return null
+        return terrainTileRepository.findByLayerIdAndCoordinate(layer.id, coordinate)?.convert()
+    }
 }

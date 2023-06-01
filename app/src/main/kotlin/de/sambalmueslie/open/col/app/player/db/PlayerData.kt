@@ -22,7 +22,7 @@ data class PlayerData(
         }
     }
 
-    fun convert() = Player(id, name)
+    fun convert() = Player(id, name, worldId)
     fun update(request: PlayerChangeRequest): PlayerData {
         name = request.name
         return this

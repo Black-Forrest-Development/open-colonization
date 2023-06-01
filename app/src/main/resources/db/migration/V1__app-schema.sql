@@ -92,14 +92,29 @@ CREATE TABLE tile_layer
     updated TIMESTAMP WITHOUT TIME ZONE
 );
 
+CREATE SEQUENCE tile_terrain_seq;
 CREATE TABLE tile_terrain
 (
+    id           BIGINT NOT NULL PRIMARY KEY DEFAULT nextval('tile_terrain_seq'::regclass),
     coordinate_x INT    NOT NULL,
     coordinate_y INT    NOT NULL,
 
-    layer_id        BIGINT NOT NULL REFERENCES tile_layer,
-    terrain_id      BIGINT NOT NULL REFERENCES terrain,
-
-    PRIMARY KEY (coordinate_x, coordinate_y)
+    layer_id     BIGINT NOT NULL REFERENCES tile_layer,
+    terrain_id   BIGINT NOT NULL REFERENCES terrain
 );
 
+-- settlement
+CREATE SEQUENCE settlement_seq;
+CREATE TABLE settlement
+(
+    id           BIGINT                      NOT NULL PRIMARY KEY DEFAULT nextval('settlement_seq'::regclass),
+    coordinate_x INT                         NOT NULL,
+    coordinate_y INT                         NOT NULL,
+    name         VARCHAR(255) UNIQUE         NOT NULL,
+
+    world_id     BIGINT                      NOT NULL REFERENCES world,
+    owner_id     BIGINT                      NOT NULL REFERENCES player,
+
+    created      TIMESTAMP WITHOUT TIME ZONE NOT NULL,
+    updated      TIMESTAMP WITHOUT TIME ZONE
+);
