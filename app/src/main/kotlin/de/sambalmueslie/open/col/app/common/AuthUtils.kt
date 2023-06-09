@@ -1,6 +1,6 @@
 package de.sambalmueslie.open.col.app.common
 
-import de.sambalmueslie.openbooking.error.InsufficientPermissionsException
+import de.sambalmueslie.open.col.app.error.InsufficientPermissionsException
 import io.micronaut.security.authentication.Authentication
 
 

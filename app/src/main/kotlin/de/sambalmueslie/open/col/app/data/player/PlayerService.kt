@@ -10,7 +10,7 @@ import de.sambalmueslie.open.col.app.data.player.db.PlayerData
 import de.sambalmueslie.open.col.app.data.player.db.PlayerRepository
 import de.sambalmueslie.open.col.app.data.world.WorldService
 import de.sambalmueslie.open.col.app.data.world.api.World
-import de.sambalmueslie.openbooking.error.InvalidRequestException
+import de.sambalmueslie.open.col.app.error.InvalidRequestException
 import jakarta.inject.Singleton
 import org.slf4j.Logger
 import org.slf4j.LoggerFactory

@@ -12,7 +12,7 @@ import de.sambalmueslie.open.col.app.data.settlement.db.SettlementData
 import de.sambalmueslie.open.col.app.data.settlement.db.SettlementRepository
 import de.sambalmueslie.open.col.app.data.world.WorldService
 import de.sambalmueslie.open.col.app.data.world.api.World
-import de.sambalmueslie.openbooking.error.InvalidRequestException
+import de.sambalmueslie.open.col.app.error.InvalidRequestException
 import io.micronaut.data.model.Page
 import io.micronaut.data.model.Pageable
 import jakarta.inject.Singleton

@@ -17,7 +17,7 @@ import de.sambalmueslie.open.col.app.data.terrain.db.TerrainProductionRepository
 import de.sambalmueslie.open.col.app.data.terrain.db.TerrainRepository
 import de.sambalmueslie.open.col.app.data.world.api.World
 import de.sambalmueslie.open.col.app.engine.api.ResourceProduction
-import de.sambalmueslie.openbooking.error.InvalidRequestException
+import de.sambalmueslie.open.col.app.error.InvalidRequestException
 import io.micronaut.data.model.Page
 import io.micronaut.data.model.Pageable
 import jakarta.inject.Singleton
@@ -38,11 +38,12 @@ class TerrainService(
     companion object {
         private val logger: Logger = LoggerFactory.getLogger(TerrainService::class.java)
         private const val WORLD_REFERENCE = "world"
+        private const val CACHE_SIZE = 100L
     }
 
     private val cache: LoadingCache<Long, Terrain> = cacheService.register(Terrain::class) {
         Caffeine.newBuilder()
-            .maximumSize(100)
+            .maximumSize(CACHE_SIZE)
             .expireAfterWrite(1, TimeUnit.HOURS)
             .recordStats()
             .build { id -> repository.findByIdOrNull(id)?.let { convert(it) } }
@@ -80,7 +81,7 @@ class TerrainService(
     }
 
     override fun create(request: TerrainChangeRequest, properties: Map<String, Any>): Terrain {
-        val world = properties.get(WORLD_REFERENCE) as? World ?: throw InvalidRequestException("Cannot find world")
+        val world = properties[WORLD_REFERENCE] as? World ?: throw InvalidRequestException("Cannot find world")
         val data = repository.save(TerrainData.create(world, request, timeProvider.now()))
         val production = productionRepository.saveAll(
             request.production.mapNotNull {

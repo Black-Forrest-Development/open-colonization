@@ -36,6 +36,19 @@ CREATE TABLE resource
     updated  TIMESTAMP WITHOUT TIME ZONE
 );
 
+-- goods
+CREATE SEQUENCE goods_seq;
+CREATE TABLE goods
+(
+    id       BIGINT                      NOT NULL PRIMARY KEY DEFAULT nextval('goods_seq'::regclass),
+    name     VARCHAR(255) UNIQUE         NOT NULL,
+
+    world_id BIGINT                      NOT NULL REFERENCES world,
+
+    created  TIMESTAMP WITHOUT TIME ZONE NOT NULL,
+    updated  TIMESTAMP WITHOUT TIME ZONE
+);
+
 -- terrain
 CREATE SEQUENCE terrain_seq;
 CREATE TABLE terrain
@@ -117,4 +130,52 @@ CREATE TABLE settlement
 
     created      TIMESTAMP WITHOUT TIME ZONE NOT NULL,
     updated      TIMESTAMP WITHOUT TIME ZONE
+);
+
+-- buildings
+CREATE SEQUENCE building_seq;
+CREATE TABLE building
+(
+    id       BIGINT                      NOT NULL PRIMARY KEY DEFAULT nextval('building_seq'::regclass),
+    name     VARCHAR(255) UNIQUE         NOT NULL,
+
+    world_id BIGINT                      NOT NULL REFERENCES world,
+
+    created  TIMESTAMP WITHOUT TIME ZONE NOT NULL,
+    updated  TIMESTAMP WITHOUT TIME ZONE
+);
+
+CREATE TABLE building_requirement
+(
+    id         BIGINT                      NOT NULL PRIMARY KEY REFERENCES building,
+    population INT                         NOT NULL,
+
+    created    TIMESTAMP WITHOUT TIME ZONE NOT NULL,
+    updated    TIMESTAMP WITHOUT TIME ZONE
+);
+
+CREATE SEQUENCE building_cost_resources_seq;
+CREATE TABLE building_cost_resources
+(
+    id          BIGINT                      NOT NULL PRIMARY KEY DEFAULT nextval('building_cost_resources_seq'::regclass),
+    amount      INT                         NOT NULL,
+
+    building_id BIGINT                      NOT NULL REFERENCES building,
+    resource_id BIGINT                      NOT NULL REFERENCES resource,
+
+    created     TIMESTAMP WITHOUT TIME ZONE NOT NULL,
+    updated     TIMESTAMP WITHOUT TIME ZONE
+);
+
+CREATE SEQUENCE building_effect_goods_seq;
+CREATE TABLE building_effect_goods
+(
+    id          BIGINT                      NOT NULL PRIMARY KEY DEFAULT nextval('building_effect_goods_seq'::regclass),
+    amount      INT                         NOT NULL,
+
+    building_id BIGINT                      NOT NULL REFERENCES building,
+    goods_id BIGINT                      NOT NULL REFERENCES goods,
+
+    created     TIMESTAMP WITHOUT TIME ZONE NOT NULL,
+    updated     TIMESTAMP WITHOUT TIME ZONE
 );

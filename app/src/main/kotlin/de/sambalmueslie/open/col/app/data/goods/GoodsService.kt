@@ -1,14 +1,17 @@
-package de.sambalmueslie.open.col.app.data.resource
+package de.sambalmueslie.open.col.app.data.goods
 
 
 import de.sambalmueslie.open.col.app.cache.CacheService
 import de.sambalmueslie.open.col.app.common.GenericCrudService
 import de.sambalmueslie.open.col.app.common.PageableSequence
 import de.sambalmueslie.open.col.app.common.TimeProvider
+import de.sambalmueslie.open.col.app.data.goods.api.Goods
+import de.sambalmueslie.open.col.app.data.goods.api.GoodsChangeRequest
+import de.sambalmueslie.open.col.app.data.goods.db.GoodsData
+import de.sambalmueslie.open.col.app.data.goods.db.GoodsRepository
 import de.sambalmueslie.open.col.app.data.resource.api.Resource
 import de.sambalmueslie.open.col.app.data.resource.api.ResourceChangeRequest
 import de.sambalmueslie.open.col.app.data.resource.db.ResourceData
-import de.sambalmueslie.open.col.app.data.resource.db.ResourceRepository
 import de.sambalmueslie.open.col.app.data.world.api.World
 import de.sambalmueslie.open.col.app.error.InvalidRequestException
 import jakarta.inject.Singleton
@@ -16,39 +19,38 @@ import org.slf4j.Logger
 import org.slf4j.LoggerFactory
 
 @Singleton
-class ResourceService(
-    private val repository: ResourceRepository,
+class GoodsService(
+    private val repository: GoodsRepository,
     private val timeProvider: TimeProvider,
     cacheService: CacheService,
-) : GenericCrudService<Long, Resource, ResourceChangeRequest, ResourceData>(
-    repository, cacheService, Resource::class, logger
+) : GenericCrudService<Long, Goods, GoodsChangeRequest, GoodsData>(
+    repository, cacheService, Goods::class, logger
 ) {
 
+
     companion object {
-        private val logger: Logger = LoggerFactory.getLogger(ResourceService::class.java)
+        private val logger: Logger = LoggerFactory.getLogger(GoodsService::class.java)
         private const val WORLD_REFERENCE = "world"
     }
 
-
-    fun create(world: World, request: ResourceChangeRequest) {
+    fun create(world: World, request: GoodsChangeRequest) {
         create(request, mapOf(Pair(WORLD_REFERENCE, world)))
     }
 
-
-    override fun createData(request: ResourceChangeRequest, properties: Map<String, Any>): ResourceData {
+    override fun createData(request: GoodsChangeRequest, properties: Map<String, Any>): GoodsData {
         val world = properties[WORLD_REFERENCE] as? World ?: throw InvalidRequestException("Cannot find world")
-        return ResourceData.create(world, request, timeProvider.now())
+        return GoodsData.create(world, request, timeProvider.now())
     }
 
-    override fun updateData(data: ResourceData, request: ResourceChangeRequest): ResourceData {
+    override fun updateData(data: GoodsData, request: GoodsChangeRequest): GoodsData {
         return data.update(request, timeProvider.now())
     }
 
-    override fun isValid(request: ResourceChangeRequest) {
+    override fun isValid(request: GoodsChangeRequest) {
         if (request.name.isBlank()) throw InvalidRequestException("Name cannot be blank")
     }
 
-    fun findByName(name: String): Resource? {
+    fun findByName(name: String): Goods? {
         return repository.findByName(name)?.convert()
     }
 
@@ -56,6 +58,8 @@ class ResourceService(
         val sequence = PageableSequence() { repository.findByWorldId(world.id, it) }
         sequence.forEach { delete(it) }
     }
+
+
 
 
 }

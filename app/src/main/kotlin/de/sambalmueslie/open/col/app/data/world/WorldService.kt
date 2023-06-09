@@ -8,7 +8,7 @@ import de.sambalmueslie.open.col.app.data.world.api.World
 import de.sambalmueslie.open.col.app.data.world.api.WorldChangeRequest
 import de.sambalmueslie.open.col.app.data.world.db.WorldData
 import de.sambalmueslie.open.col.app.data.world.db.WorldRepository
-import de.sambalmueslie.openbooking.error.InvalidRequestException
+import de.sambalmueslie.open.col.app.error.InvalidRequestException
 import jakarta.inject.Singleton
 import org.slf4j.Logger
 import org.slf4j.LoggerFactory
