@@ -4,7 +4,7 @@ package de.sambalmueslie.open.col.app.engine
 import de.sambalmueslie.open.col.app.common.PageableIterator
 import de.sambalmueslie.open.col.app.engine.api.ComponentSystem
 import de.sambalmueslie.open.col.app.engine.api.EngineContext
-import de.sambalmueslie.open.col.app.world.WorldService
+import de.sambalmueslie.open.col.app.data.world.WorldService
 import io.micronaut.scheduling.annotation.Scheduled
 import jakarta.inject.Singleton
 import org.slf4j.Logger
