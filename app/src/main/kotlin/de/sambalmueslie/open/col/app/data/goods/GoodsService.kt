@@ -9,9 +9,6 @@ import de.sambalmueslie.open.col.app.data.goods.api.Goods
 import de.sambalmueslie.open.col.app.data.goods.api.GoodsChangeRequest
 import de.sambalmueslie.open.col.app.data.goods.db.GoodsData
 import de.sambalmueslie.open.col.app.data.goods.db.GoodsRepository
-import de.sambalmueslie.open.col.app.data.resource.api.Resource
-import de.sambalmueslie.open.col.app.data.resource.api.ResourceChangeRequest
-import de.sambalmueslie.open.col.app.data.resource.db.ResourceData
 import de.sambalmueslie.open.col.app.data.world.api.World
 import de.sambalmueslie.open.col.app.error.InvalidRequestException
 import jakarta.inject.Singleton

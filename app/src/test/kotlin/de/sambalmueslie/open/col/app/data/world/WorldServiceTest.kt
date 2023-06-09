@@ -1,6 +1,5 @@
 package de.sambalmueslie.open.col.app.data.world
 
-import de.sambalmueslie.open.col.app.data.world.WorldService
 import de.sambalmueslie.open.col.app.data.world.api.WorldChangeRequest
 import io.micronaut.test.extensions.junit5.annotation.MicronautTest
 import jakarta.inject.Inject

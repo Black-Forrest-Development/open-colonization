@@ -28,7 +28,7 @@ abstract class GenericCrudService<T : Any, O : BusinessObject<T>, R : BusinessOb
     }
 
     final override fun get(id: T): O? {
-        return cache.get(id)
+        return cache[id]
     }
 
     override fun getAll(pageable: Pageable): Page<O> {

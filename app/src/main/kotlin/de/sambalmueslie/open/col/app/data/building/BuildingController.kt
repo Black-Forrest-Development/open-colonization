@@ -3,8 +3,6 @@ package de.sambalmueslie.open.col.app.data.building
 
 import de.sambalmueslie.open.col.app.data.building.api.Building
 import de.sambalmueslie.open.col.app.data.building.api.BuildingAPI
-import de.sambalmueslie.open.col.app.data.building.api.BuildingChangeRequest
-import de.sambalmueslie.open.col.app.data.settlement.api.Settlement
 import io.micronaut.data.model.Page
 import io.micronaut.data.model.Pageable
 import io.micronaut.http.annotation.Controller

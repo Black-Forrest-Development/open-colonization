@@ -3,11 +3,10 @@ package de.sambalmueslie.open.col.app.data.goods.db
 import de.sambalmueslie.open.col.app.common.DataObject
 import de.sambalmueslie.open.col.app.data.goods.api.Goods
 import de.sambalmueslie.open.col.app.data.goods.api.GoodsChangeRequest
-import de.sambalmueslie.open.col.app.data.resource.api.ResourceChangeRequest
-import de.sambalmueslie.open.col.app.data.resource.db.ResourceData
 import de.sambalmueslie.open.col.app.data.world.api.World
 import jakarta.persistence.*
 import java.time.LocalDateTime
+
 @Entity(name = "Goods")
 @Table(name = "goods")
 data class GoodsData(

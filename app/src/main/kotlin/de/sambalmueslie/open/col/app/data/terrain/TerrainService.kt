@@ -50,7 +50,7 @@ class TerrainService(
     }
 
     override fun get(id: Long): Terrain? {
-        return cache.get(id)
+        return cache[id]
     }
 
     private fun convert(data: TerrainData): Terrain {

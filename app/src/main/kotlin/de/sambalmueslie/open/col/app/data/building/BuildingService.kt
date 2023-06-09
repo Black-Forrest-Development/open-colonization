@@ -8,7 +8,8 @@ import de.sambalmueslie.open.col.app.common.BaseCrudService
 import de.sambalmueslie.open.col.app.common.PageableSequence
 import de.sambalmueslie.open.col.app.common.TimeProvider
 import de.sambalmueslie.open.col.app.common.findByIdOrNull
-import de.sambalmueslie.open.col.app.data.building.api.*
+import de.sambalmueslie.open.col.app.data.building.api.Building
+import de.sambalmueslie.open.col.app.data.building.api.BuildingChangeRequest
 import de.sambalmueslie.open.col.app.data.building.db.BuildingData
 import de.sambalmueslie.open.col.app.data.building.db.BuildingRepository
 import de.sambalmueslie.open.col.app.data.world.api.World
@@ -46,7 +47,7 @@ class BuildingService(
     }
 
     override fun get(id: Long): Building? {
-        return cache.get(id)
+        return cache[id]
     }
 
     private fun convert(data: BuildingData): Building {
