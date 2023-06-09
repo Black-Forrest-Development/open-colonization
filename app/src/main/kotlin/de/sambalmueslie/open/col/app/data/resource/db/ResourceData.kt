@@ -19,8 +19,8 @@ data class ResourceData(
 ) : DataObject<Resource> {
 
     companion object {
-        fun create(world: World, request: ResourceChangeRequest): ResourceData {
-            return ResourceData(0, world.id, request.name, LocalDateTime.now(), null)
+        fun create(world: World, request: ResourceChangeRequest, timestamp: LocalDateTime): ResourceData {
+            return ResourceData(0, world.id, request.name, timestamp, null)
         }
     }
 
@@ -28,9 +28,9 @@ data class ResourceData(
         return Resource(id, name)
     }
 
-    fun update(request: ResourceChangeRequest): ResourceData {
+    fun update(request: ResourceChangeRequest, timestamp: LocalDateTime): ResourceData {
         name = request.name
-        updated = LocalDateTime.now()
+        updated = timestamp
         return this
     }
 

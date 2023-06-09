@@ -2,10 +2,9 @@ package de.sambalmueslie.open.col.app.engine
 
 
 import de.sambalmueslie.open.col.app.common.PageableIterator
+import de.sambalmueslie.open.col.app.data.world.WorldService
 import de.sambalmueslie.open.col.app.engine.api.ComponentSystem
 import de.sambalmueslie.open.col.app.engine.api.EngineContext
-import de.sambalmueslie.open.col.app.data.world.WorldService
-import io.micronaut.scheduling.annotation.Scheduled
 import jakarta.inject.Singleton
 import org.slf4j.Logger
 import org.slf4j.LoggerFactory
@@ -23,7 +22,6 @@ class EngineService(
         private val logger: Logger = LoggerFactory.getLogger(EngineService::class.java)
     }
 
-    @Scheduled(cron = "0/30 * * * * *")
     fun update() {
         val timestamp = LocalDateTime.now().toEpochSecond(ZoneOffset.UTC)
         val worlds = PageableIterator() { worldService.getAll(it) }

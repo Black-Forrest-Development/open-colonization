@@ -1,13 +1,10 @@
 package de.sambalmueslie.open.col.app.data.player.api
 
-import io.micronaut.data.model.Page
-import io.micronaut.data.model.Pageable
+import de.sambalmueslie.open.col.app.common.ReadAPI
 
-interface PlayerAPI {
+interface PlayerAPI : ReadAPI<Long, Player> {
     fun create(worldId: Long, request: PlayerChangeRequest): Player
     fun update(id: Long, request: PlayerChangeRequest): Player
     fun delete(id: Long)
-    fun get(id: Long): Player?
     fun findByName(name: String): Player?
-    fun getAll(pageable: Pageable): Page<Player>
 }

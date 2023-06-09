@@ -15,4 +15,6 @@ interface SettlementRepository : PageableRepository<SettlementData, Long> {
 
     fun findByCoordinate(coordinate: Coordinate): SettlementData?
 
+    fun findByName(name: String): SettlementData?
+
 }

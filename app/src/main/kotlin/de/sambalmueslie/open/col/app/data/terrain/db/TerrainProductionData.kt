@@ -1,8 +1,8 @@
 package de.sambalmueslie.open.col.app.data.terrain.db
 
-import de.sambalmueslie.open.col.app.engine.api.ResourceProduction
 import de.sambalmueslie.open.col.app.data.resource.api.Resource
 import de.sambalmueslie.open.col.app.data.terrain.api.TerrainProductionChangeRequest
+import de.sambalmueslie.open.col.app.engine.api.ResourceProduction
 import jakarta.persistence.*
 import java.time.LocalDateTime
 
@@ -23,8 +23,13 @@ data class TerrainProductionData(
     fun convert() = ResourceProduction(resourceId, forested, woodless)
 
     companion object {
-        fun create(data: TerrainData, resource: Resource, request: TerrainProductionChangeRequest): TerrainProductionData {
-            return TerrainProductionData(0, data.id, resource.id, request.forested, request.woodless)
+        fun create(
+            data: TerrainData,
+            resource: Resource,
+            request: TerrainProductionChangeRequest,
+            timestamp: LocalDateTime
+        ): TerrainProductionData {
+            return TerrainProductionData(0, data.id, resource.id, request.forested, request.woodless, timestamp)
         }
     }
 }

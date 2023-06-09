@@ -5,8 +5,6 @@ import de.sambalmueslie.open.col.app.common.findByIdOrNull
 import de.sambalmueslie.open.col.app.data.terrain.TerrainService
 import de.sambalmueslie.open.col.app.data.tile.api.*
 import de.sambalmueslie.open.col.app.data.tile.db.*
-import de.sambalmueslie.open.col.app.tile.api.*
-import de.sambalmueslie.open.col.app.tile.db.*
 import de.sambalmueslie.open.col.app.data.world.api.World
 import io.micronaut.data.model.Page
 import io.micronaut.data.model.Pageable
@@ -66,4 +64,5 @@ class TileMapService(
         val layer = layerRepository.findOneByMapIdAndType(map.id, TileLayerType.TERRAIN) ?: return null
         return terrainTileRepository.findByLayerIdAndCoordinate(layer.id, coordinate)?.convert()
     }
+
 }

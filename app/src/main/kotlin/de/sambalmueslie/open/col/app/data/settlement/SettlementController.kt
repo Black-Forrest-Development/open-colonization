@@ -6,9 +6,7 @@ import de.sambalmueslie.open.col.app.data.settlement.api.SettlementAPI
 import de.sambalmueslie.open.col.app.data.settlement.api.SettlementChangeRequest
 import io.micronaut.data.model.Page
 import io.micronaut.data.model.Pageable
-import io.micronaut.http.annotation.Body
-import io.micronaut.http.annotation.Controller
-import io.micronaut.http.annotation.Post
+import io.micronaut.http.annotation.*
 
 @Controller("/api/settlement")
 class SettlementController(private val service: SettlementService) : SettlementAPI {
@@ -18,24 +16,29 @@ class SettlementController(private val service: SettlementService) : SettlementA
         return service.create(playerId, request)
     }
 
-    override fun update(id: Long, request: SettlementChangeRequest): Settlement {
-        TODO("Not yet implemented")
+    @Put("/{id}")
+    override fun update(id: Long, @Body request: SettlementChangeRequest): Settlement {
+        return service.update(id, request)
     }
 
-    override fun delete(id: Long) {
-        TODO("Not yet implemented")
+    @Delete("/{id}")
+    override fun delete(id: Long): Settlement? {
+        return service.delete(id)
     }
 
+    @Get("/{id}")
     override fun get(id: Long): Settlement? {
-        TODO("Not yet implemented")
+        return service.get(id)
     }
 
-    override fun findByName(name: String): Settlement? {
-        TODO("Not yet implemented")
+    @Get("/find/by/name")
+    override fun findByName(@QueryValue name: String): Settlement? {
+        return service.findByName(name)
     }
 
+    @Get()
     override fun getAll(pageable: Pageable): Page<Settlement> {
-        TODO("Not yet implemented")
+        return service.getAll(pageable)
     }
 
 

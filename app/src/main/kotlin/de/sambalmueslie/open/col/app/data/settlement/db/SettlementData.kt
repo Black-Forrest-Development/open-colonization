@@ -1,5 +1,6 @@
 package de.sambalmueslie.open.col.app.data.settlement.db
 
+import de.sambalmueslie.open.col.app.common.DataObject
 import de.sambalmueslie.open.col.app.data.player.api.Player
 import de.sambalmueslie.open.col.app.data.settlement.api.Settlement
 import de.sambalmueslie.open.col.app.data.settlement.api.SettlementChangeRequest
@@ -19,13 +20,18 @@ data class SettlementData(
 
     @Column var created: LocalDateTime = LocalDateTime.now(),
     @Column var updated: LocalDateTime? = null
-) {
+) : DataObject<Settlement> {
     companion object {
-        fun create(world: World, player: Player, request: SettlementChangeRequest): SettlementData {
-            return SettlementData(0, world.id, request.coordinate, request.name, player.id, LocalDateTime.now())
+        fun create(world: World, player: Player, request: SettlementChangeRequest, timestamp: LocalDateTime): SettlementData {
+            return SettlementData(0, world.id, request.coordinate, request.name, player.id, timestamp)
         }
     }
 
-    fun convert() = Settlement(id, coordinate, name, worldId, ownerId)
+    override fun convert() = Settlement(id, coordinate, name, worldId, ownerId)
+    fun update(request: SettlementChangeRequest, timestamp: LocalDateTime): SettlementData {
+        name = request.name
+        updated = timestamp
+        return this
+    }
 }
 

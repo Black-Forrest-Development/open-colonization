@@ -1,14 +1,13 @@
 package de.sambalmueslie.open.col.app.data.terrain
 
 
-import com.fasterxml.jackson.databind.ObjectMapper
 import com.github.benmanes.caffeine.cache.Caffeine
 import com.github.benmanes.caffeine.cache.LoadingCache
 import de.sambalmueslie.open.col.app.cache.CacheService
 import de.sambalmueslie.open.col.app.common.BaseCrudService
 import de.sambalmueslie.open.col.app.common.PageableSequence
+import de.sambalmueslie.open.col.app.common.TimeProvider
 import de.sambalmueslie.open.col.app.common.findByIdOrNull
-import de.sambalmueslie.open.col.app.engine.api.ResourceProduction
 import de.sambalmueslie.open.col.app.data.resource.ResourceService
 import de.sambalmueslie.open.col.app.data.terrain.api.Terrain
 import de.sambalmueslie.open.col.app.data.terrain.api.TerrainChangeRequest
@@ -17,8 +16,8 @@ import de.sambalmueslie.open.col.app.data.terrain.db.TerrainProductionData
 import de.sambalmueslie.open.col.app.data.terrain.db.TerrainProductionRepository
 import de.sambalmueslie.open.col.app.data.terrain.db.TerrainRepository
 import de.sambalmueslie.open.col.app.data.world.api.World
+import de.sambalmueslie.open.col.app.engine.api.ResourceProduction
 import de.sambalmueslie.openbooking.error.InvalidRequestException
-import io.micronaut.core.io.ResourceLoader
 import io.micronaut.data.model.Page
 import io.micronaut.data.model.Pageable
 import jakarta.inject.Singleton
@@ -28,13 +27,11 @@ import java.util.concurrent.TimeUnit
 
 @Singleton
 class TerrainService(
-    private val loader: ResourceLoader,
-    private val mapper: ObjectMapper,
-
     private val resourceService: ResourceService,
 
     private val repository: TerrainRepository,
     private val productionRepository: TerrainProductionRepository,
+    private val timeProvider: TimeProvider,
     cacheService: CacheService,
 ) : BaseCrudService<Long, Terrain, TerrainChangeRequest>(logger) {
 
@@ -84,11 +81,11 @@ class TerrainService(
 
     override fun create(request: TerrainChangeRequest, properties: Map<String, Any>): Terrain {
         val world = properties.get(WORLD_REFERENCE) as? World ?: throw InvalidRequestException("Cannot find world")
-        val data = repository.save(TerrainData.create(world, request))
+        val data = repository.save(TerrainData.create(world, request, timeProvider.now()))
         val production = productionRepository.saveAll(
             request.production.mapNotNull {
                 val r = resourceService.findByName(it.resource) ?: return@mapNotNull null
-                TerrainProductionData.create(data, r, it)
+                TerrainProductionData.create(data, r, it, data.created)
             }
         ).map { it.convert() }
         val result = data.convert(production)
@@ -98,7 +95,7 @@ class TerrainService(
 
     override fun update(id: Long, request: TerrainChangeRequest): Terrain {
         val data = repository.findByIdOrNull(id) ?: throw InvalidRequestException("Cannot find terrain by $id")
-        val result = convert(repository.update(data.update(request)))
+        val result = convert(repository.update(data.update(request, timeProvider.now())))
         cache.invalidate(result.id)
         notifyUpdated(result)
         return result

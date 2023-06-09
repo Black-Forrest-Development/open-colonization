@@ -16,15 +16,15 @@ data class WorldData(
     @Column var updated: LocalDateTime? = null
 ) : DataObject<World> {
     companion object {
-        fun create(request: WorldChangeRequest): WorldData {
-            return WorldData(0, request.name)
+        fun create(request: WorldChangeRequest, timestamp: LocalDateTime): WorldData {
+            return WorldData(0, request.name, timestamp)
         }
     }
 
     override fun convert() = World(id, name)
-    fun update(request: WorldChangeRequest): WorldData {
+    fun update(request: WorldChangeRequest, timestamp: LocalDateTime): WorldData {
         name = request.name
-        updated = LocalDateTime.now()
+        updated = timestamp
         return this
     }
 }

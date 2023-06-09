@@ -1,9 +1,9 @@
 package de.sambalmueslie.open.col.app.data.terrain.db
 
-import de.sambalmueslie.open.col.app.engine.api.ResourceProduction
 import de.sambalmueslie.open.col.app.data.terrain.api.Terrain
 import de.sambalmueslie.open.col.app.data.terrain.api.TerrainChangeRequest
 import de.sambalmueslie.open.col.app.data.world.api.World
+import de.sambalmueslie.open.col.app.engine.api.ResourceProduction
 import jakarta.persistence.*
 import java.time.LocalDateTime
 
@@ -19,8 +19,8 @@ data class TerrainData(
 ) {
 
     companion object {
-        fun create(world: World, request: TerrainChangeRequest): TerrainData {
-            return TerrainData(0, world.id, request.name, LocalDateTime.now(), null)
+        fun create(world: World, request: TerrainChangeRequest, timestamp: LocalDateTime): TerrainData {
+            return TerrainData(0, world.id, request.name, timestamp)
         }
     }
 
@@ -29,9 +29,9 @@ data class TerrainData(
         return Terrain(id, name, production)
     }
 
-    fun update(request: TerrainChangeRequest): TerrainData {
+    fun update(request: TerrainChangeRequest, timestamp: LocalDateTime): TerrainData {
         name = request.name
-        updated = LocalDateTime.now()
+        updated = timestamp
         return this
     }
 }

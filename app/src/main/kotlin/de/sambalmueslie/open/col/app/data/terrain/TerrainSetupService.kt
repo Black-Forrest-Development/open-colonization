@@ -4,8 +4,6 @@ package de.sambalmueslie.open.col.app.data.terrain
 import com.fasterxml.jackson.databind.ObjectMapper
 import com.fasterxml.jackson.module.kotlin.readValue
 import de.sambalmueslie.open.col.app.common.BusinessObjectChangeListener
-import de.sambalmueslie.open.col.app.data.resource.ResourceSetupService
-import de.sambalmueslie.open.col.app.data.resource.api.ResourceChangeRequest
 import de.sambalmueslie.open.col.app.data.terrain.api.TerrainChangeRequest
 import de.sambalmueslie.open.col.app.data.world.WorldService
 import de.sambalmueslie.open.col.app.data.world.api.World
