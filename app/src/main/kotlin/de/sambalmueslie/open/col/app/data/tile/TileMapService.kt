@@ -55,6 +55,10 @@ class TileMapService(
         return repository.findByIdOrNull(id)?.convert()
     }
 
+    fun getByWorld(world: World): TileMap? {
+        return repository.findByWorldId(world.id)?.convert()
+    }
+
     fun getAll(pageable: Pageable): Page<TileMap> {
         return repository.findAll(pageable).map { it.convert() }
     }

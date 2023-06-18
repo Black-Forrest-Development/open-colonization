@@ -1,4 +1,4 @@
-package de.sambalmueslie.open.col.app.engine.service
+package de.sambalmueslie.open.col.app.engine.system
 
 
 import de.sambalmueslie.open.col.app.common.PageableSequence
@@ -12,20 +12,22 @@ import de.sambalmueslie.open.col.app.data.tile.api.TerrainTile
 import de.sambalmueslie.open.col.app.engine.api.ComponentSystem
 import de.sambalmueslie.open.col.app.engine.api.EngineContext
 import de.sambalmueslie.open.col.app.engine.api.ResourceProduction
+import de.sambalmueslie.open.col.app.engine.service.StorageService
 import jakarta.inject.Singleton
 import org.slf4j.Logger
 import org.slf4j.LoggerFactory
 
 @Singleton
-class TerrainProductionService(
+class TerrainProductionSystem(
     private val terrainService: TerrainService,
     private val resourceService: ResourceService,
     private val tileMapService: TileMapService,
-    private val settlementService: SettlementService
+    private val settlementService: SettlementService,
+    private val storageService: StorageService
 ) : ComponentSystem {
 
     companion object {
-        private val logger: Logger = LoggerFactory.getLogger(TerrainProductionService::class.java)
+        private val logger: Logger = LoggerFactory.getLogger(TerrainProductionSystem::class.java)
     }
 
 
@@ -36,17 +38,17 @@ class TerrainProductionService(
 
     private fun calcProduction(context: EngineContext, settlement: Settlement) {
         val coordinate = settlement.coordinate
-        val result = mutableMapOf<Resource, Double>()
+        val data = mutableMapOf<Resource, Double>()
         val terrain = tileMapService.getTerrainTile(context.world, coordinate) ?: return
-        calcProduction(terrain, result)
+        calcProduction(terrain, data)
 
         logger.info(
             "[${settlement.name}] - Production ${
-                result.entries.filter { it.value > 0 }.joinToString { "${it.key.name}:${it.value}" }
+                data.filter { it.value > 0 }.entries.joinToString { "${it.key.name}:${it.value}" }
             }"
         )
 
-
+        storageService.store(settlement, data)
     }
 
     private fun calcProduction(

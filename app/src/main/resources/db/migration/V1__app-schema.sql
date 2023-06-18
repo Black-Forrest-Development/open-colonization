@@ -132,6 +132,15 @@ CREATE TABLE settlement
     updated      TIMESTAMP WITHOUT TIME ZONE
 );
 
+CREATE TABLE settlement_resource
+(
+    id_settlement_id BIGINT           NOT NULL REFERENCES settlement,
+    id_resource_id   BIGINT           NOT NULL REFERENCES resource,
+    amount        DOUBLE PRECISION NOT NULL,
+    PRIMARY KEY (id_settlement_id, id_resource_id)
+);
+
+
 -- buildings
 CREATE SEQUENCE building_seq;
 CREATE TABLE building
@@ -174,7 +183,7 @@ CREATE TABLE building_effect_goods
     amount      INT                         NOT NULL,
 
     building_id BIGINT                      NOT NULL REFERENCES building,
-    goods_id BIGINT                      NOT NULL REFERENCES goods,
+    goods_id    BIGINT                      NOT NULL REFERENCES goods,
 
     created     TIMESTAMP WITHOUT TIME ZONE NOT NULL,
     updated     TIMESTAMP WITHOUT TIME ZONE
