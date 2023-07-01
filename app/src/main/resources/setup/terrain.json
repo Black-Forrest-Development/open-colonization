@@ -3,47 +3,47 @@
     "name": "PLAINS",
     "production": [
       {
-        "resource": "FOOD",
+        "item": "FOOD",
         "forested": 3.0,
         "woodless": 4.0
       },
       {
-        "resource": "SUGAR",
+        "item": "SUGAR",
         "forested": 0.0,
         "woodless": 0.0
       },
       {
-        "resource": "TOBACCO",
+        "item": "TOBACCO",
         "forested": 1.0,
         "woodless": 1.0
       },
       {
-        "resource": "COTTON",
+        "item": "COTTON",
         "forested": 1.0,
         "woodless": 2.0
       },
       {
-        "resource": "FUR",
+        "item": "FUR",
         "forested": 3.0,
         "woodless": 0.0
       },
       {
-        "resource": "LUMBER",
+        "item": "LUMBER",
         "forested": 6.0,
         "woodless": 0.0
       },
       {
-        "resource": "ORE",
+        "item": "ORE",
         "forested": 0.0,
         "woodless": 0.0
       },
       {
-        "resource": "SILVER",
+        "item": "SILVER",
         "forested": 0.0,
         "woodless": 0.0
       },
       {
-        "resource": "FISH",
+        "item": "FISH",
         "forested": 0.0,
         "woodless": 0.0
       }
@@ -53,47 +53,47 @@
     "name": "GRASSLANDS",
     "production": [
       {
-        "resource": "FOOD",
+        "item": "FOOD",
         "forested": 3.0,
         "woodless": 4.0
       },
       {
-        "resource": "SUGAR",
+        "item": "SUGAR",
         "forested": 0.0,
         "woodless": 1.0
       },
       {
-        "resource": "TOBACCO",
+        "item": "TOBACCO",
         "forested": 1.0,
         "woodless": 3.0
       },
       {
-        "resource": "COTTON",
+        "item": "COTTON",
         "forested": 1.0,
         "woodless": 2.0
       },
       {
-        "resource": "FUR",
+        "item": "FUR",
         "forested": 2.0,
         "woodless": 0.0
       },
       {
-        "resource": "LUMBER",
+        "item": "LUMBER",
         "forested": 6.0,
         "woodless": 0.0
       },
       {
-        "resource": "ORE",
+        "item": "ORE",
         "forested": 0.0,
         "woodless": 0.0
       },
       {
-        "resource": "SILVER",
+        "item": "SILVER",
         "forested": 0.0,
         "woodless": 0.0
       },
       {
-        "resource": "FISH",
+        "item": "FISH",
         "forested": 0.0,
         "woodless": 0.0
       }
@@ -103,47 +103,47 @@
     "name": "PRAIRIE",
     "production": [
       {
-        "resource": "FOOD",
+        "item": "FOOD",
         "forested": 3.0,
         "woodless": 4.0
       },
       {
-        "resource": "SUGAR",
+        "item": "SUGAR",
         "forested": 0.0,
         "woodless": 0.0
       },
       {
-        "resource": "TOBACCO",
+        "item": "TOBACCO",
         "forested": 1.0,
         "woodless": 2.0
       },
       {
-        "resource": "COTTON",
+        "item": "COTTON",
         "forested": 1.0,
         "woodless": 3.0
       },
       {
-        "resource": "FUR",
+        "item": "FUR",
         "forested": 2.0,
         "woodless": 0.0
       },
       {
-        "resource": "LUMBER",
+        "item": "LUMBER",
         "forested": 4.0,
         "woodless": 0.0
       },
       {
-        "resource": "ORE",
+        "item": "ORE",
         "forested": 0.0,
         "woodless": 0.0
       },
       {
-        "resource": "SILVER",
+        "item": "SILVER",
         "forested": 0.0,
         "woodless": 0.0
       },
       {
-        "resource": "FISH",
+        "item": "FISH",
         "forested": 0.0,
         "woodless": 0.0
       }
@@ -153,47 +153,47 @@
     "name": "SAVANNAH",
     "production": [
       {
-        "resource": "FOOD",
+        "item": "FOOD",
         "forested": 3.0,
         "woodless": 4.0
       },
       {
-        "resource": "SUGAR",
+        "item": "SUGAR",
         "forested": 1.0,
         "woodless": 3.0
       },
       {
-        "resource": "TOBACCO",
+        "item": "TOBACCO",
         "forested": 1.0,
         "woodless": 2.0
       },
       {
-        "resource": "COTTON",
+        "item": "COTTON",
         "forested": 1.0,
         "woodless": 3.0
       },
       {
-        "resource": "FUR",
+        "item": "FUR",
         "forested": 2.0,
         "woodless": 0.0
       },
       {
-        "resource": "LUMBER",
+        "item": "LUMBER",
         "forested": 4.0,
         "woodless": 0.0
       },
       {
-        "resource": "ORE",
+        "item": "ORE",
         "forested": 0.0,
         "woodless": 0.0
       },
       {
-        "resource": "SILVER",
+        "item": "SILVER",
         "forested": 0.0,
         "woodless": 0.0
       },
       {
-        "resource": "FISH",
+        "item": "FISH",
         "forested": 0.0,
         "woodless": 0.0
       }
@@ -203,47 +203,47 @@
     "name": "MARSH",
     "production": [
       {
-        "resource": "FOOD",
+        "item": "FOOD",
         "forested": 2.0,
         "woodless": 3.0
       },
       {
-        "resource": "SUGAR",
+        "item": "SUGAR",
         "forested": 1.0,
         "woodless": 1.0
       },
       {
-        "resource": "TOBACCO",
+        "item": "TOBACCO",
         "forested": 2.0,
         "woodless": 3.0
       },
       {
-        "resource": "COTTON",
+        "item": "COTTON",
         "forested": 0.0,
         "woodless": 0.0
       },
       {
-        "resource": "FUR",
+        "item": "FUR",
         "forested": 2.0,
         "woodless": 0.0
       },
       {
-        "resource": "LUMBER",
+        "item": "LUMBER",
         "forested": 4.0,
         "woodless": 0.0
       },
       {
-        "resource": "ORE",
+        "item": "ORE",
         "forested": 2.0,
         "woodless": 3.0
       },
       {
-        "resource": "SILVER",
+        "item": "SILVER",
         "forested": 0.0,
         "woodless": 0.0
       },
       {
-        "resource": "FISH",
+        "item": "FISH",
         "forested": 0.0,
         "woodless": 0.0
       }
@@ -253,47 +253,47 @@
     "name": "SWAMP",
     "production": [
       {
-        "resource": "FOOD",
+        "item": "FOOD",
         "forested": 2.0,
         "woodless": 3.0
       },
       {
-        "resource": "SUGAR",
+        "item": "SUGAR",
         "forested": 2.0,
         "woodless": 3.0
       },
       {
-        "resource": "TOBACCO",
+        "item": "TOBACCO",
         "forested": 0.0,
         "woodless": 1.0
       },
       {
-        "resource": "COTTON",
+        "item": "COTTON",
         "forested": 0.0,
         "woodless": 0.0
       },
       {
-        "resource": "FUR",
+        "item": "FUR",
         "forested": 0.0,
         "woodless": 0.0
       },
       {
-        "resource": "LUMBER",
+        "item": "LUMBER",
         "forested": 4.0,
         "woodless": 0.0
       },
       {
-        "resource": "ORE",
+        "item": "ORE",
         "forested": 0.0,
         "woodless": 0.0
       },
       {
-        "resource": "SILVER",
+        "item": "SILVER",
         "forested": 0.0,
         "woodless": 0.0
       },
       {
-        "resource": "FISH",
+        "item": "FISH",
         "forested": 0.0,
         "woodless": 0.0
       }
@@ -303,47 +303,47 @@
     "name": "DESERT",
     "production": [
       {
-        "resource": "FOOD",
+        "item": "FOOD",
         "forested": 2.0,
         "woodless": 2.0
       },
       {
-        "resource": "SUGAR",
+        "item": "SUGAR",
         "forested": 0.0,
         "woodless": 0.0
       },
       {
-        "resource": "TOBACCO",
+        "item": "TOBACCO",
         "forested": 0.0,
         "woodless": 1.0
       },
       {
-        "resource": "COTTON",
+        "item": "COTTON",
         "forested": 1.0,
         "woodless": 1.0
       },
       {
-        "resource": "FUR",
+        "item": "FUR",
         "forested": 2.0,
         "woodless": 0.0
       },
       {
-        "resource": "LUMBER",
+        "item": "LUMBER",
         "forested": 2.0,
         "woodless": 0.0
       },
       {
-        "resource": "ORE",
+        "item": "ORE",
         "forested": 1.0,
         "woodless": 2.0
       },
       {
-        "resource": "SILVER",
+        "item": "SILVER",
         "forested": 0.0,
         "woodless": 0.0
       },
       {
-        "resource": "FISH",
+        "item": "FISH",
         "forested": 0.0,
         "woodless": 0.0
       }
@@ -353,47 +353,47 @@
     "name": "TUNDRA",
     "production": [
       {
-        "resource": "FOOD",
+        "item": "FOOD",
         "forested": 2.0,
         "woodless": 3.0
       },
       {
-        "resource": "SUGAR",
+        "item": "SUGAR",
         "forested": 0.0,
         "woodless": 0.0
       },
       {
-        "resource": "TOBACCO",
+        "item": "TOBACCO",
         "forested": 0.0,
         "woodless": 0.0
       },
       {
-        "resource": "COTTON",
+        "item": "COTTON",
         "forested": 0.0,
         "woodless": 0.0
       },
       {
-        "resource": "FUR",
+        "item": "FUR",
         "forested": 3.0,
         "woodless": 0.0
       },
       {
-        "resource": "LUMBER",
+        "item": "LUMBER",
         "forested": 4.0,
         "woodless": 0.0
       },
       {
-        "resource": "ORE",
+        "item": "ORE",
         "forested": 1.0,
         "woodless": 2.0
       },
       {
-        "resource": "SILVER",
+        "item": "SILVER",
         "forested": 0.0,
         "woodless": 0.0
       },
       {
-        "resource": "FISH",
+        "item": "FISH",
         "forested": 0.0,
         "woodless": 0.0
       }
@@ -403,47 +403,47 @@
     "name": "ARCTIC",
     "production": [
       {
-        "resource": "FOOD",
+        "item": "FOOD",
         "forested": 0.0,
         "woodless": 0.0
       },
       {
-        "resource": "SUGAR",
+        "item": "SUGAR",
         "forested": 0.0,
         "woodless": 0.0
       },
       {
-        "resource": "TOBACCO",
+        "item": "TOBACCO",
         "forested": 0.0,
         "woodless": 0.0
       },
       {
-        "resource": "COTTON",
+        "item": "COTTON",
         "forested": 0.0,
         "woodless": 0.0
       },
       {
-        "resource": "FUR",
+        "item": "FUR",
         "forested": 0.0,
         "woodless": 0.0
       },
       {
-        "resource": "LUMBER",
+        "item": "LUMBER",
         "forested": 0.0,
         "woodless": 0.0
       },
       {
-        "resource": "ORE",
+        "item": "ORE",
         "forested": 0.0,
         "woodless": 0.0
       },
       {
-        "resource": "SILVER",
+        "item": "SILVER",
         "forested": 0.0,
         "woodless": 0.0
       },
       {
-        "resource": "FISH",
+        "item": "FISH",
         "forested": 0.0,
         "woodless": 0.0
       }
@@ -453,47 +453,47 @@
     "name": "HILLS",
     "production": [
       {
-        "resource": "FOOD",
+        "item": "FOOD",
         "forested": 2.0,
         "woodless": 2.0
       },
       {
-        "resource": "SUGAR",
+        "item": "SUGAR",
         "forested": 0.0,
         "woodless": 0.0
       },
       {
-        "resource": "TOBACCO",
+        "item": "TOBACCO",
         "forested": 0.0,
         "woodless": 0.0
       },
       {
-        "resource": "COTTON",
+        "item": "COTTON",
         "forested": 0.0,
         "woodless": 0.0
       },
       {
-        "resource": "FUR",
+        "item": "FUR",
         "forested": 0.0,
         "woodless": 0.0
       },
       {
-        "resource": "LUMBER",
+        "item": "LUMBER",
         "forested": 0.0,
         "woodless": 0.0
       },
       {
-        "resource": "ORE",
+        "item": "ORE",
         "forested": 4.0,
         "woodless": 4.0
       },
       {
-        "resource": "SILVER",
+        "item": "SILVER",
         "forested": 0.0,
         "woodless": 0.0
       },
       {
-        "resource": "FISH",
+        "item": "FISH",
         "forested": 0.0,
         "woodless": 0.0
       }
@@ -503,47 +503,47 @@
     "name": "MOUNTAINS",
     "production": [
       {
-        "resource": "FOOD",
+        "item": "FOOD",
         "forested": 0.0,
         "woodless": 0.0
       },
       {
-        "resource": "SUGAR",
+        "item": "SUGAR",
         "forested": 0.0,
         "woodless": 0.0
       },
       {
-        "resource": "TOBACCO",
+        "item": "TOBACCO",
         "forested": 0.0,
         "woodless": 0.0
       },
       {
-        "resource": "COTTON",
+        "item": "COTTON",
         "forested": 0.0,
         "woodless": 0.0
       },
       {
-        "resource": "FUR",
+        "item": "FUR",
         "forested": 0.0,
         "woodless": 0.0
       },
       {
-        "resource": "LUMBER",
+        "item": "LUMBER",
         "forested": 0.0,
         "woodless": 0.0
       },
       {
-        "resource": "ORE",
+        "item": "ORE",
         "forested": 3.0,
         "woodless": 3.0
       },
       {
-        "resource": "SILVER",
+        "item": "SILVER",
         "forested": 1.0,
         "woodless": 1.0
       },
       {
-        "resource": "FISH",
+        "item": "FISH",
         "forested": 0.0,
         "woodless": 0.0
       }
@@ -553,47 +553,47 @@
     "name": "OCEAN",
     "production": [
       {
-        "resource": "FOOD",
+        "item": "FOOD",
         "forested": 0.0,
         "woodless": 0.0
       },
       {
-        "resource": "SUGAR",
+        "item": "SUGAR",
         "forested": 0.0,
         "woodless": 0.0
       },
       {
-        "resource": "TOBACCO",
+        "item": "TOBACCO",
         "forested": 0.0,
         "woodless": 0.0
       },
       {
-        "resource": "COTTON",
+        "item": "COTTON",
         "forested": 0.0,
         "woodless": 0.0
       },
       {
-        "resource": "FUR",
+        "item": "FUR",
         "forested": 0.0,
         "woodless": 0.0
       },
       {
-        "resource": "LUMBER",
+        "item": "LUMBER",
         "forested": 0.0,
         "woodless": 0.0
       },
       {
-        "resource": "ORE",
+        "item": "ORE",
         "forested": 0.0,
         "woodless": 0.0
       },
       {
-        "resource": "SILVER",
+        "item": "SILVER",
         "forested": 0.0,
         "woodless": 0.0
       },
       {
-        "resource": "FISH",
+        "item": "FISH",
         "forested": 3.0,
         "woodless": 3.0
       }

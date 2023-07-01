@@ -1,4 +1,4 @@
-package de.sambalmueslie.open.col.app.data.resource.db
+package de.sambalmueslie.open.col.app.data.item.db
 
 import io.micronaut.data.annotation.Repository
 import io.micronaut.data.jdbc.annotation.JdbcRepository
@@ -9,9 +9,9 @@ import io.micronaut.data.repository.PageableRepository
 
 @Repository
 @JdbcRepository(dialect = Dialect.POSTGRES)
-interface ResourceRepository : PageableRepository<ResourceData, Long> {
+interface ItemRepository : PageableRepository<ItemData, Long> {
 
-    fun findByName(name: String): ResourceData?
-    fun findByWorldId(id: Long, pageable: Pageable): Page<ResourceData>
+    fun findByName(name: String): ItemData?
+    fun findByWorldId(id: Long, pageable: Pageable): Page<ItemData>
 
 }

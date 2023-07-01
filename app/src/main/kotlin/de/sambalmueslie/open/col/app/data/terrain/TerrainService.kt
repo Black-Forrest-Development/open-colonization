@@ -8,7 +8,7 @@ import de.sambalmueslie.open.col.app.common.BaseCrudService
 import de.sambalmueslie.open.col.app.common.PageableSequence
 import de.sambalmueslie.open.col.app.common.TimeProvider
 import de.sambalmueslie.open.col.app.common.findByIdOrNull
-import de.sambalmueslie.open.col.app.data.resource.ResourceService
+import de.sambalmueslie.open.col.app.data.item.ItemService
 import de.sambalmueslie.open.col.app.data.terrain.api.Terrain
 import de.sambalmueslie.open.col.app.data.terrain.api.TerrainChangeRequest
 import de.sambalmueslie.open.col.app.data.terrain.db.TerrainData
@@ -16,7 +16,7 @@ import de.sambalmueslie.open.col.app.data.terrain.db.TerrainProductionData
 import de.sambalmueslie.open.col.app.data.terrain.db.TerrainProductionRepository
 import de.sambalmueslie.open.col.app.data.terrain.db.TerrainRepository
 import de.sambalmueslie.open.col.app.data.world.api.World
-import de.sambalmueslie.open.col.app.engine.api.ResourceProduction
+import de.sambalmueslie.open.col.app.engine.api.ItemProduction
 import de.sambalmueslie.open.col.app.error.InvalidRequestException
 import io.micronaut.data.model.Page
 import io.micronaut.data.model.Pageable
@@ -27,7 +27,7 @@ import java.util.concurrent.TimeUnit
 
 @Singleton
 class TerrainService(
-    private val resourceService: ResourceService,
+    private val itemService: ItemService,
 
     private val repository: TerrainRepository,
     private val productionRepository: TerrainProductionRepository,
@@ -57,7 +57,7 @@ class TerrainService(
         return data.convert(getProduction(data))
     }
 
-    private fun getProduction(data: TerrainData): List<ResourceProduction> {
+    private fun getProduction(data: TerrainData): List<ItemProduction> {
         return productionRepository.findByTerrainId(data.id).map { it.convert() }
     }
 
@@ -85,7 +85,7 @@ class TerrainService(
         val data = repository.save(TerrainData.create(world, request, timeProvider.now()))
         val production = productionRepository.saveAll(
             request.production.mapNotNull {
-                val r = resourceService.findByName(it.resource) ?: return@mapNotNull null
+                val r = itemService.findByName(it.item) ?: return@mapNotNull null
                 TerrainProductionData.create(data, r, it, data.created)
             }
         ).map { it.convert() }

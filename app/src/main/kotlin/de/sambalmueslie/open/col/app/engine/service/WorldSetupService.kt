@@ -6,10 +6,8 @@ import com.fasterxml.jackson.module.kotlin.readValue
 import de.sambalmueslie.open.col.app.common.BusinessObjectChangeListener
 import de.sambalmueslie.open.col.app.data.building.BuildingService
 import de.sambalmueslie.open.col.app.data.building.api.BuildingChangeRequest
-import de.sambalmueslie.open.col.app.data.goods.GoodsService
-import de.sambalmueslie.open.col.app.data.goods.api.GoodsChangeRequest
-import de.sambalmueslie.open.col.app.data.resource.ResourceService
-import de.sambalmueslie.open.col.app.data.resource.api.ResourceChangeRequest
+import de.sambalmueslie.open.col.app.data.item.ItemService
+import de.sambalmueslie.open.col.app.data.item.api.ItemChangeRequest
 import de.sambalmueslie.open.col.app.data.terrain.TerrainService
 import de.sambalmueslie.open.col.app.data.terrain.api.TerrainChangeRequest
 import de.sambalmueslie.open.col.app.data.tile.TileMapService
@@ -30,10 +28,9 @@ class WorldSetupService(
 
     worldService: WorldService,
 
-    private val resourceService: ResourceService,
+    private val itemService: ItemService,
     private val terrainService: TerrainService,
     private val tileMapService: TileMapService,
-    private val goodsService: GoodsService,
     private val buildingService: BuildingService
 ) : BusinessObjectChangeListener<Long, World> {
 
@@ -52,22 +49,21 @@ class WorldSetupService(
 
     private fun setupWorld(world: World) {
         logger.info("[${world.id}] Run initial setup")
-        setupResources(world)
+        setupItem(world)
         setupTerrain(world)
         setupTileMap(world)
 
-        setupGoods(world)
         setupBuilding(world)
     }
 
 
-    private fun setupResources(world: World) {
-        logger.info("[${world.id}] Run initial setup - setup resources")
-        resourceService.delete(world)
-        val rawData = loader.getResourceAsStream("setup/resource.json").get()
-        val data: List<ResourceChangeRequest> = mapper.readValue(rawData)
+    private fun setupItem(world: World) {
+        logger.info("[${world.id}] Run initial setup - setup item")
+        itemService.delete(world)
+        val rawData = loader.getResourceAsStream("setup/item.json").get()
+        val data: List<ItemChangeRequest> = mapper.readValue(rawData)
         if (data.isEmpty()) return
-        data.forEach { resourceService.create(world, it) }
+        data.forEach { itemService.create(world, it) }
     }
 
     private fun setupTerrain(world: World) {
@@ -90,21 +86,13 @@ class WorldSetupService(
             loadTiles(map)
         }
     }
+
     private fun loadTiles(map: TileMap) {
         val rawData = loader.getResourceAsStream("setup/tiles.json").get()
         val data: List<TerrainTileChangeRequest> = mapper.readValue(rawData)
         if (data.isEmpty()) return
         data.forEach { tileMapService.create(map, it) }
     }
-    private fun setupGoods(world: World) {
-        logger.info("[${world.id}] Run initial setup - setup goods")
-        goodsService.delete(world)
-        val rawData = loader.getResourceAsStream("setup/goods.json").get()
-        val data: List<GoodsChangeRequest> = mapper.readValue(rawData)
-        if (data.isEmpty()) return
-        data.forEach { goodsService.create(world, it) }
-    }
-
 
     private fun setupBuilding(world: World) {
         logger.info("[${world.id}] Run initial setup - setup building")

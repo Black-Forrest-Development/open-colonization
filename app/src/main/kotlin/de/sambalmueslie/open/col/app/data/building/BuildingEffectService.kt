@@ -5,11 +5,11 @@ import de.sambalmueslie.open.col.app.common.TimeProvider
 import de.sambalmueslie.open.col.app.common.findByIdOrNull
 import de.sambalmueslie.open.col.app.data.building.api.BuildingEffect
 import de.sambalmueslie.open.col.app.data.building.api.BuildingEffectChangeRequest
-import de.sambalmueslie.open.col.app.data.building.api.EffectGoodsChangeRequest
+import de.sambalmueslie.open.col.app.data.building.api.EffectItemChangeRequest
 import de.sambalmueslie.open.col.app.data.building.db.BuildingData
-import de.sambalmueslie.open.col.app.data.building.db.EffectGoodsData
-import de.sambalmueslie.open.col.app.data.building.db.EffectGoodsRepository
-import de.sambalmueslie.open.col.app.data.goods.GoodsService
+import de.sambalmueslie.open.col.app.data.building.db.EffectItemRepository
+import de.sambalmueslie.open.col.app.data.building.db.EffectItemData
+import de.sambalmueslie.open.col.app.data.item.ItemService
 import de.sambalmueslie.open.col.app.error.InvalidRequestException
 import jakarta.inject.Singleton
 import org.slf4j.Logger
@@ -17,8 +17,8 @@ import org.slf4j.LoggerFactory
 
 @Singleton
 class BuildingEffectService(
-    private val goodsRepository: EffectGoodsRepository,
-    private val goodsService: GoodsService,
+    private val repository: EffectItemRepository,
+    private val itemsService: ItemService,
     private val timeProvider: TimeProvider,
 ) {
 
@@ -28,12 +28,12 @@ class BuildingEffectService(
 
 
     internal fun get(data: BuildingData): List<BuildingEffect> {
-        val goods = goodsRepository.findByIdOrNull(data.id) ?: return emptyList()
-        return listOf(goods.convert())
+        val item = repository.findByIdOrNull(data.id) ?: return emptyList()
+        return listOf(item.convert())
     }
 
     fun get(buildingIds: Set<Long>): Map<Long, List<BuildingEffect>> {
-        return goodsRepository.findByIdIn(buildingIds)
+        return repository.findByIdIn(buildingIds)
             .groupBy { it.id }
             .mapValues { it.value.map { v -> v.convert() } }
     }
@@ -44,18 +44,18 @@ class BuildingEffectService(
 
     private fun create(data: BuildingData, request: BuildingEffectChangeRequest): BuildingEffect {
         return when (request) {
-            is EffectGoodsChangeRequest -> create(data, request)
+            is EffectItemChangeRequest -> create(data, request)
             else -> throw InvalidRequestException("Unknown type of building effect ${request.javaClass.simpleName}")
         }
     }
 
     private fun create(
         data: BuildingData,
-        request: EffectGoodsChangeRequest
+        request: EffectItemChangeRequest
     ): BuildingEffect {
-        val goods = goodsService.findByName(request.name)
-            ?: throw InvalidRequestException("Cannot find goods ${request.name}")
-        return goodsRepository.save(EffectGoodsData.create(data, goods, request, timeProvider.now())).convert()
+        val item = itemsService.findByName(request.name)
+            ?: throw InvalidRequestException("Cannot find item ${request.name}")
+        return repository.save(EffectItemData.create(data, item, request, timeProvider.now())).convert()
     }
 
 }

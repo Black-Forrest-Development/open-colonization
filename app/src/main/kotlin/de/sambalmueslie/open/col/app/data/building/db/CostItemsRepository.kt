@@ -7,7 +7,7 @@ import io.micronaut.data.repository.PageableRepository
 
 @Repository
 @JdbcRepository(dialect = Dialect.POSTGRES)
-interface EffectGoodsRepository : PageableRepository<EffectGoodsData, Long> {
-    fun findByIdIn(buildingIds: Set<Long>): List<EffectGoodsData>
+interface CostItemsRepository : PageableRepository<CostItemsData, Long> {
+    fun findByIdIn(buildingIds: Set<Long>): List<CostItemsData>
 
 }

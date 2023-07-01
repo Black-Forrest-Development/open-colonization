@@ -23,11 +23,11 @@ CREATE TABLE player
 );
 
 
--- resource
-CREATE SEQUENCE resource_seq;
-CREATE TABLE resource
+-- item
+CREATE SEQUENCE item_seq;
+CREATE TABLE item
 (
-    id       BIGINT                      NOT NULL PRIMARY KEY DEFAULT nextval('resource_seq'::regclass),
+    id       BIGINT                      NOT NULL PRIMARY KEY DEFAULT nextval('item_seq'::regclass),
     name     VARCHAR(255) UNIQUE         NOT NULL,
 
     world_id BIGINT                      NOT NULL REFERENCES world,
@@ -36,18 +36,6 @@ CREATE TABLE resource
     updated  TIMESTAMP WITHOUT TIME ZONE
 );
 
--- goods
-CREATE SEQUENCE goods_seq;
-CREATE TABLE goods
-(
-    id       BIGINT                      NOT NULL PRIMARY KEY DEFAULT nextval('goods_seq'::regclass),
-    name     VARCHAR(255) UNIQUE         NOT NULL,
-
-    world_id BIGINT                      NOT NULL REFERENCES world,
-
-    created  TIMESTAMP WITHOUT TIME ZONE NOT NULL,
-    updated  TIMESTAMP WITHOUT TIME ZONE
-);
 
 -- terrain
 CREATE SEQUENCE terrain_seq;
@@ -65,16 +53,16 @@ CREATE TABLE terrain
 CREATE SEQUENCE terrain_production_seq;
 CREATE TABLE terrain_production
 (
-    id          BIGINT                      NOT NULL PRIMARY KEY DEFAULT nextval('terrain_production_seq'::regclass),
+    id         BIGINT                      NOT NULL PRIMARY KEY DEFAULT nextval('terrain_production_seq'::regclass),
 
-    forested    DOUBLE PRECISION            NOT NULL,
-    woodless    DOUBLE PRECISION            NOT NULL,
+    forested   DOUBLE PRECISION            NOT NULL,
+    woodless   DOUBLE PRECISION            NOT NULL,
 
-    terrain_id  BIGINT                      NOT NULL REFERENCES terrain,
-    resource_id BIGINT                      NOT NULL REFERENCES resource,
+    terrain_id BIGINT                      NOT NULL REFERENCES terrain,
+    item_id    BIGINT                      NOT NULL REFERENCES item,
 
-    created     TIMESTAMP WITHOUT TIME ZONE NOT NULL,
-    updated     TIMESTAMP WITHOUT TIME ZONE
+    created    TIMESTAMP WITHOUT TIME ZONE NOT NULL,
+    updated    TIMESTAMP WITHOUT TIME ZONE
 );
 
 
@@ -132,12 +120,12 @@ CREATE TABLE settlement
     updated      TIMESTAMP WITHOUT TIME ZONE
 );
 
-CREATE TABLE settlement_resource
+CREATE TABLE settlement_item
 (
     id_settlement_id BIGINT           NOT NULL REFERENCES settlement,
-    id_resource_id   BIGINT           NOT NULL REFERENCES resource,
-    amount        DOUBLE PRECISION NOT NULL,
-    PRIMARY KEY (id_settlement_id, id_resource_id)
+    id_item_id       BIGINT           NOT NULL REFERENCES item,
+    amount           DOUBLE PRECISION NOT NULL,
+    PRIMARY KEY (id_settlement_id, id_item_id)
 );
 
 
@@ -163,27 +151,27 @@ CREATE TABLE building_requirement
     updated    TIMESTAMP WITHOUT TIME ZONE
 );
 
-CREATE SEQUENCE building_cost_resources_seq;
-CREATE TABLE building_cost_resources
+CREATE SEQUENCE building_cost_items_seq;
+CREATE TABLE building_cost_items
 (
-    id          BIGINT                      NOT NULL PRIMARY KEY DEFAULT nextval('building_cost_resources_seq'::regclass),
+    id          BIGINT                      NOT NULL PRIMARY KEY DEFAULT nextval('building_cost_items_seq'::regclass),
     amount      INT                         NOT NULL,
 
     building_id BIGINT                      NOT NULL REFERENCES building,
-    resource_id BIGINT                      NOT NULL REFERENCES resource,
+    item_id     BIGINT                      NOT NULL REFERENCES item,
 
     created     TIMESTAMP WITHOUT TIME ZONE NOT NULL,
     updated     TIMESTAMP WITHOUT TIME ZONE
 );
 
-CREATE SEQUENCE building_effect_goods_seq;
-CREATE TABLE building_effect_goods
+CREATE SEQUENCE building_effect_item_seq;
+CREATE TABLE building_effect_item
 (
-    id          BIGINT                      NOT NULL PRIMARY KEY DEFAULT nextval('building_effect_goods_seq'::regclass),
+    id          BIGINT                      NOT NULL PRIMARY KEY DEFAULT nextval('building_effect_item_seq'::regclass),
     amount      INT                         NOT NULL,
 
     building_id BIGINT                      NOT NULL REFERENCES building,
-    goods_id    BIGINT                      NOT NULL REFERENCES goods,
+    item_id     BIGINT                      NOT NULL REFERENCES item,
 
     created     TIMESTAMP WITHOUT TIME ZONE NOT NULL,
     updated     TIMESTAMP WITHOUT TIME ZONE

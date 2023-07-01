@@ -1,7 +1,7 @@
-package de.sambalmueslie.open.col.app.data.goods.api
+package de.sambalmueslie.open.col.app.data.item.api
 
 import de.sambalmueslie.open.col.app.common.BusinessObjectChangeRequest
 
-data class GoodsChangeRequest(
+data class ItemChangeRequest(
     val name: String
 ) : BusinessObjectChangeRequest

@@ -8,13 +8,13 @@ import io.micronaut.data.repository.PageableRepository
 
 @Repository
 @JdbcRepository(dialect = Dialect.POSTGRES)
-interface SettlementResourceRepository : PageableRepository<SettlementResourceEntry, SettlementResourceId> {
+interface SettlementItemRepository : PageableRepository<SettlementItemEntry, SettlementItemId> {
 
 
-    @Query("SELECT r.* FROM settlement_resource r WHERE r.id_settlement_id = :settlementId")
-    fun findBySettlementId(settlementId: Long): List<SettlementResourceEntry>
+    @Query("SELECT r.* FROM settlement_item r WHERE r.id_settlement_id = :settlementId")
+    fun findBySettlementId(settlementId: Long): List<SettlementItemEntry>
 
-    @Query("DELETE FROM settlement_resource r WHERE r.id_settlement_id = :settlementId")
+    @Query("DELETE FROM settlement_item r WHERE r.id_settlement_id = :settlementId")
     fun deleteBySettlementId(settlementId: Long)
 
 }

@@ -3,7 +3,7 @@ package de.sambalmueslie.open.col.app.data.settlement.db
 import jakarta.persistence.Embeddable
 
 @Embeddable
-data class SettlementResourceId(
+data class SettlementItemId(
     val settlementId: Long,
-    val resourceId: Long
+    val itemId: Long
 )

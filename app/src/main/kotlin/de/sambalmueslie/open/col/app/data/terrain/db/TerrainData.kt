@@ -3,7 +3,7 @@ package de.sambalmueslie.open.col.app.data.terrain.db
 import de.sambalmueslie.open.col.app.data.terrain.api.Terrain
 import de.sambalmueslie.open.col.app.data.terrain.api.TerrainChangeRequest
 import de.sambalmueslie.open.col.app.data.world.api.World
-import de.sambalmueslie.open.col.app.engine.api.ResourceProduction
+import de.sambalmueslie.open.col.app.engine.api.ItemProduction
 import jakarta.persistence.*
 import java.time.LocalDateTime
 
@@ -25,7 +25,7 @@ data class TerrainData(
     }
 
 
-    fun convert(production: List<ResourceProduction>): Terrain {
+    fun convert(production: List<ItemProduction>): Terrain {
         return Terrain(id, name, production)
     }
 

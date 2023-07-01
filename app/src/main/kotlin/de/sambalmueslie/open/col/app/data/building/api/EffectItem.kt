@@ -1,6 +1,6 @@
 package de.sambalmueslie.open.col.app.data.building.api
 
-data class EffectGoods(
-    val goodId: Long,
+data class EffectItem(
+    val itemId: Long,
     val amount: Int
 ) : BuildingEffect

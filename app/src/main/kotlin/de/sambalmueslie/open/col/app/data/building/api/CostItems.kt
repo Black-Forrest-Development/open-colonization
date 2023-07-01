@@ -1,6 +1,6 @@
 package de.sambalmueslie.open.col.app.data.building.api
 
-data class CostResources(
-    val resourceId: Long,
+data class CostItems(
+    val itemId: Long,
     val amount: Int
 ) : BuildingCost

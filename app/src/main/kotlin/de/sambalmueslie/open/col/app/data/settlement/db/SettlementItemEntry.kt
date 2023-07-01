@@ -6,9 +6,9 @@ import jakarta.persistence.Entity
 import jakarta.persistence.Table
 
 @Suppress("JpaAttributeTypeInspection")
-@Entity(name = "SettlementResource")
-@Table(name = "settlement_resource")
-data class SettlementResourceEntry(
-    @EmbeddedId val id: SettlementResourceId,
+@Entity(name = "SettlementItem")
+@Table(name = "settlement_item")
+data class SettlementItemEntry(
+    @EmbeddedId val id: SettlementItemId,
     @Column var amount: Double
 )
