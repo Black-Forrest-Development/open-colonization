@@ -11,39 +11,48 @@ import org.slf4j.Logger
 import java.util.concurrent.TimeUnit
 import kotlin.reflect.KClass
 
-abstract class GenericCrudService<T : Any, O : BusinessObject<T>, R : BusinessObjectChangeRequest, D : DataObject<O>>(
+abstract class GenericCrudService<T : Any, O : BusinessObject<T>, R : BusinessObjectChangeRequest, D : DataObject>(
     private val repository: PageableRepository<D, T>,
+    private val converter: DataObjectConverter<O, D>,
+
     cacheService: CacheService,
     type: KClass<O>,
     logger: Logger,
     cacheSize: Long = 100,
 ) : BaseCrudService<T, O, R>(logger) {
 
+
     private val cache: LoadingCache<T, O> = cacheService.register(type) {
         Caffeine.newBuilder()
             .maximumSize(cacheSize)
             .expireAfterWrite(1, TimeUnit.HOURS)
             .recordStats()
-            .build { id -> repository.findByIdOrNull(id)?.convert() }
+            .build { id -> repository.findByIdOrNull(id)?.let { converter.convert(it) } }
     }
+
 
     final override fun get(id: T): O? {
         return cache[id]
     }
 
     override fun getAll(pageable: Pageable): Page<O> {
-        return repository.findAll(pageable).map { it.convert() }
+        return repository.findAll(pageable).map { converter.convert(it) }
     }
 
     override fun create(request: R, properties: Map<String, Any>): O {
         isValid(request)
         val existing = existing(request)
-        if (existing != null) return existing.convert()
+        if (existing != null) return converter.convert(existing)
 
-        val result = repository.save(createData(request, properties)).convert()
-        cache.put(result.id, result)
+        val result = repository.save(createData(request, properties)).let { converter.convert(it) }
         notifyCreated(result)
+        createDependencies(request, properties, result)
+        cache.put(result.id, result)
         return result
+    }
+
+    protected open fun createDependencies(request: R, properties: Map<String, Any>, result: O) {
+        // intentionally left empty
     }
 
     protected abstract fun createData(request: R, properties: Map<String, Any>): D
@@ -51,7 +60,7 @@ abstract class GenericCrudService<T : Any, O : BusinessObject<T>, R : BusinessOb
     override fun update(id: T, request: R): O {
         val data = repository.findByIdOrNull(id) ?: return create(request)
         isValid(request)
-        val result = repository.update(updateData(data, request)).convert()
+        val result = repository.update(updateData(data, request)).let { converter.convert(it) }
         cache.put(result.id, result)
         notifyUpdated(result)
         return result
@@ -66,7 +75,7 @@ abstract class GenericCrudService<T : Any, O : BusinessObject<T>, R : BusinessOb
 
     protected fun patchData(data: D, patch: (D) -> Unit): O {
         patch.invoke(data)
-        val result = repository.update(data).convert()
+        val result = repository.update(data).let { converter.convert(it) }
         cache.put(result.id, result)
         notifyUpdated(result)
         return result
@@ -79,7 +88,7 @@ abstract class GenericCrudService<T : Any, O : BusinessObject<T>, R : BusinessOb
 
     fun delete(data: D): O {
         deleteDependencies(data)
-        val result = data.convert()
+        val result = converter.convert(data)
         notifyDeleted(result)
         repository.delete(data)
         cache.invalidate(result.id)
@@ -100,6 +109,7 @@ abstract class GenericCrudService<T : Any, O : BusinessObject<T>, R : BusinessOb
         sequence.forEach { delete(it) }
         cache.invalidateAll()
     }
+
 
 }
 

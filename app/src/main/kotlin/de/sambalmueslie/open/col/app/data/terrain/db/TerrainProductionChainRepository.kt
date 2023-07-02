@@ -8,7 +8,7 @@ import io.micronaut.data.repository.PageableRepository
 
 @Repository
 @JdbcRepository(dialect = Dialect.POSTGRES)
-interface TerrainProductionRepository : PageableRepository<TerrainProductionData, Long> {
+interface TerrainProductionChainRepository : PageableRepository<TerrainProductionData, Long> {
     fun findByTerrainId(terrainId: Long): List<TerrainProductionData>
     fun findByTerrainIdIn(tIds: Set<Long>): List<TerrainProductionData>
 }

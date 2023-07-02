@@ -3,6 +3,7 @@ package de.sambalmueslie.open.col.app.data.settlement
 
 import de.sambalmueslie.open.col.app.cache.CacheService
 import de.sambalmueslie.open.col.app.common.GenericCrudService
+import de.sambalmueslie.open.col.app.common.SimpleDataObjectConverter
 import de.sambalmueslie.open.col.app.common.TimeProvider
 import de.sambalmueslie.open.col.app.data.player.PlayerService
 import de.sambalmueslie.open.col.app.data.player.api.Player
@@ -28,6 +29,7 @@ class SettlementService(
     cacheService: CacheService,
 ) : GenericCrudService<Long, Settlement, SettlementChangeRequest, SettlementData>(
     repository,
+    SimpleDataObjectConverter(),
     cacheService,
     Settlement::class,
     logger

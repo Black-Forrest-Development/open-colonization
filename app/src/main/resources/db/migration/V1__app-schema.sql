@@ -37,6 +37,19 @@ CREATE TABLE item
 );
 
 
+-- production chain
+CREATE SEQUENCE production_chain_seq;
+CREATE TABLE production_chain
+(
+    id      BIGINT                      NOT NULL PRIMARY KEY DEFAULT nextval('production_chain_seq'::regclass),
+
+    source  TEXT,
+    deliver TEXT                        NOT NULL,
+
+    created TIMESTAMP WITHOUT TIME ZONE NOT NULL,
+    updated TIMESTAMP WITHOUT TIME ZONE
+);
+
 -- terrain
 CREATE SEQUENCE terrain_seq;
 CREATE TABLE terrain
@@ -59,7 +72,7 @@ CREATE TABLE terrain_production
     woodless   DOUBLE PRECISION            NOT NULL,
 
     terrain_id BIGINT                      NOT NULL REFERENCES terrain,
-    item_id    BIGINT                      NOT NULL REFERENCES item,
+    chain_id   BIGINT                      NOT NULL REFERENCES production_chain,
 
     created    TIMESTAMP WITHOUT TIME ZONE NOT NULL,
     updated    TIMESTAMP WITHOUT TIME ZONE

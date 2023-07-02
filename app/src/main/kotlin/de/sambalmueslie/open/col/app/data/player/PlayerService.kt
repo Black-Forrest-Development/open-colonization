@@ -3,6 +3,7 @@ package de.sambalmueslie.open.col.app.data.player
 
 import de.sambalmueslie.open.col.app.cache.CacheService
 import de.sambalmueslie.open.col.app.common.GenericCrudService
+import de.sambalmueslie.open.col.app.common.SimpleDataObjectConverter
 import de.sambalmueslie.open.col.app.common.TimeProvider
 import de.sambalmueslie.open.col.app.data.player.api.Player
 import de.sambalmueslie.open.col.app.data.player.api.PlayerChangeRequest
@@ -23,6 +24,7 @@ class PlayerService(
     cacheService: CacheService,
 ) : GenericCrudService<Long, Player, PlayerChangeRequest, PlayerData>(
     repository,
+    SimpleDataObjectConverter(),
     cacheService,
     Player::class,
     logger

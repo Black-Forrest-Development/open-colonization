@@ -1,9 +1,10 @@
 package de.sambalmueslie.open.col.app.data.terrain.db
 
+import de.sambalmueslie.open.col.app.common.DataObject
 import de.sambalmueslie.open.col.app.data.terrain.api.Terrain
 import de.sambalmueslie.open.col.app.data.terrain.api.TerrainChangeRequest
+import de.sambalmueslie.open.col.app.data.terrain.api.TerrainProduction
 import de.sambalmueslie.open.col.app.data.world.api.World
-import de.sambalmueslie.open.col.app.engine.api.ItemProduction
 import jakarta.persistence.*
 import java.time.LocalDateTime
 
@@ -16,17 +17,12 @@ data class TerrainData(
 
     @Column var created: LocalDateTime = LocalDateTime.now(),
     @Column var updated: LocalDateTime? = null
-) {
+) : DataObject {
 
     companion object {
         fun create(world: World, request: TerrainChangeRequest, timestamp: LocalDateTime): TerrainData {
             return TerrainData(0, world.id, request.name, timestamp)
         }
-    }
-
-
-    fun convert(production: List<ItemProduction>): Terrain {
-        return Terrain(id, name, production)
     }
 
     fun update(request: TerrainChangeRequest, timestamp: LocalDateTime): TerrainData {

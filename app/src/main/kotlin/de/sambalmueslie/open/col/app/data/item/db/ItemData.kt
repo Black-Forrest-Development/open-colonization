@@ -1,6 +1,7 @@
 package de.sambalmueslie.open.col.app.data.item.db
 
 import de.sambalmueslie.open.col.app.common.DataObject
+import de.sambalmueslie.open.col.app.common.SimpleDataObject
 import de.sambalmueslie.open.col.app.data.item.api.Item
 import de.sambalmueslie.open.col.app.data.item.api.ItemChangeRequest
 import de.sambalmueslie.open.col.app.data.world.api.World
@@ -16,7 +17,7 @@ data class ItemData(
     @Column var name: String = "",
     @Column var created: LocalDateTime = LocalDateTime.now(),
     @Column var updated: LocalDateTime? = null
-) : DataObject<Item> {
+) : SimpleDataObject<Item> {
 
     companion object {
         fun create(world: World, request: ItemChangeRequest, timestamp: LocalDateTime): ItemData {

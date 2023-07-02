@@ -82,7 +82,7 @@ flyway:
       default-schema: open_colonization
       create-schemas: true
       schemas: open_colonization
-      clean-schema: true
+      clean-schema: false
 
 
 

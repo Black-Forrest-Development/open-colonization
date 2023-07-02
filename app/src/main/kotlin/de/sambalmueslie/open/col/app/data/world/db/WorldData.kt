@@ -1,6 +1,7 @@
 package de.sambalmueslie.open.col.app.data.world.db
 
 import de.sambalmueslie.open.col.app.common.DataObject
+import de.sambalmueslie.open.col.app.common.SimpleDataObject
 import de.sambalmueslie.open.col.app.data.world.api.World
 import de.sambalmueslie.open.col.app.data.world.api.WorldChangeRequest
 import jakarta.persistence.*
@@ -14,7 +15,7 @@ data class WorldData(
 
     @Column var created: LocalDateTime = LocalDateTime.now(),
     @Column var updated: LocalDateTime? = null
-) : DataObject<World> {
+) : SimpleDataObject<World> {
     companion object {
         fun create(request: WorldChangeRequest, timestamp: LocalDateTime): WorldData {
             return WorldData(0, request.name, timestamp)

@@ -4,6 +4,7 @@ package de.sambalmueslie.open.col.app.data.item
 import de.sambalmueslie.open.col.app.cache.CacheService
 import de.sambalmueslie.open.col.app.common.GenericCrudService
 import de.sambalmueslie.open.col.app.common.PageableSequence
+import de.sambalmueslie.open.col.app.common.SimpleDataObjectConverter
 import de.sambalmueslie.open.col.app.common.TimeProvider
 import de.sambalmueslie.open.col.app.data.item.api.Item
 import de.sambalmueslie.open.col.app.data.item.api.ItemChangeRequest
@@ -21,7 +22,7 @@ class ItemService(
     private val timeProvider: TimeProvider,
     cacheService: CacheService,
 ) : GenericCrudService<Long, Item, ItemChangeRequest, ItemData>(
-    repository, cacheService, Item::class, logger
+    repository, SimpleDataObjectConverter(), cacheService, Item::class, logger
 ) {
 
     companion object {
@@ -55,6 +56,10 @@ class ItemService(
     fun delete(world: World) {
         val sequence = PageableSequence() { repository.findByWorldId(world.id, it) }
         sequence.forEach { delete(it) }
+    }
+
+    fun getByIds(ids: Set<Long>): List<Item> {
+        return repository.findByIdIn(ids).map { it.convert() }
     }
 
 

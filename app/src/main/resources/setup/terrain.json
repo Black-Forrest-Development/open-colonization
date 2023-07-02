@@ -3,49 +3,94 @@
     "name": "PLAINS",
     "production": [
       {
-        "item": "FOOD",
         "forested": 3.0,
-        "woodless": 4.0
+        "woodless": 4.0,
+        "chain": {
+          "source": [],
+          "deliver": [
+            "FOOD"
+          ]
+        }
       },
       {
-        "item": "SUGAR",
         "forested": 0.0,
-        "woodless": 0.0
+        "woodless": 0.0,
+        "chain": {
+          "source": [],
+          "deliver": [
+            "SUGAR"
+          ]
+        }
       },
       {
-        "item": "TOBACCO",
         "forested": 1.0,
-        "woodless": 1.0
+        "woodless": 1.0,
+        "chain": {
+          "source": [],
+          "deliver": [
+            "TOBACCO"
+          ]
+        }
       },
       {
-        "item": "COTTON",
         "forested": 1.0,
-        "woodless": 2.0
+        "woodless": 2.0,
+        "chain": {
+          "source": [],
+          "deliver": [
+            "COTTON"
+          ]
+        }
       },
       {
-        "item": "FUR",
         "forested": 3.0,
-        "woodless": 0.0
+        "woodless": 0.0,
+        "chain": {
+          "source": [],
+          "deliver": [
+            "FUR"
+          ]
+        }
       },
       {
-        "item": "LUMBER",
         "forested": 6.0,
-        "woodless": 0.0
+        "woodless": 0.0,
+        "chain": {
+          "source": [],
+          "deliver": [
+            "LUMBER"
+          ]
+        }
       },
       {
-        "item": "ORE",
         "forested": 0.0,
-        "woodless": 0.0
+        "woodless": 0.0,
+        "chain": {
+          "source": [],
+          "deliver": [
+            "ORE"
+          ]
+        }
       },
       {
-        "item": "SILVER",
         "forested": 0.0,
-        "woodless": 0.0
+        "woodless": 0.0,
+        "chain": {
+          "source": [],
+          "deliver": [
+            "SILVER"
+          ]
+        }
       },
       {
-        "item": "FISH",
         "forested": 0.0,
-        "woodless": 0.0
+        "woodless": 0.0,
+        "chain": {
+          "source": [],
+          "deliver": [
+            "FISH"
+          ]
+        }
       }
     ]
   },
@@ -53,49 +98,94 @@
     "name": "GRASSLANDS",
     "production": [
       {
-        "item": "FOOD",
         "forested": 3.0,
-        "woodless": 4.0
+        "woodless": 4.0,
+        "chain": {
+          "source": [],
+          "deliver": [
+            "FOOD"
+          ]
+        }
       },
       {
-        "item": "SUGAR",
         "forested": 0.0,
-        "woodless": 1.0
+        "woodless": 1.0,
+        "chain": {
+          "source": [],
+          "deliver": [
+            "SUGAR"
+          ]
+        }
       },
       {
-        "item": "TOBACCO",
         "forested": 1.0,
-        "woodless": 3.0
+        "woodless": 3.0,
+        "chain": {
+          "source": [],
+          "deliver": [
+            "TOBACCO"
+          ]
+        }
       },
       {
-        "item": "COTTON",
         "forested": 1.0,
-        "woodless": 2.0
+        "woodless": 2.0,
+        "chain": {
+          "source": [],
+          "deliver": [
+            "COTTON"
+          ]
+        }
       },
       {
-        "item": "FUR",
         "forested": 2.0,
-        "woodless": 0.0
+        "woodless": 0.0,
+        "chain": {
+          "source": [],
+          "deliver": [
+            "FUR"
+          ]
+        }
       },
       {
-        "item": "LUMBER",
         "forested": 6.0,
-        "woodless": 0.0
+        "woodless": 0.0,
+        "chain": {
+          "source": [],
+          "deliver": [
+            "LUMBER"
+          ]
+        }
       },
       {
-        "item": "ORE",
         "forested": 0.0,
-        "woodless": 0.0
+        "woodless": 0.0,
+        "chain": {
+          "source": [],
+          "deliver": [
+            "ORE"
+          ]
+        }
       },
       {
-        "item": "SILVER",
         "forested": 0.0,
-        "woodless": 0.0
+        "woodless": 0.0,
+        "chain": {
+          "source": [],
+          "deliver": [
+            "SILVER"
+          ]
+        }
       },
       {
-        "item": "FISH",
         "forested": 0.0,
-        "woodless": 0.0
+        "woodless": 0.0,
+        "chain": {
+          "source": [],
+          "deliver": [
+            "FISH"
+          ]
+        }
       }
     ]
   },
@@ -103,49 +193,94 @@
     "name": "PRAIRIE",
     "production": [
       {
-        "item": "FOOD",
         "forested": 3.0,
-        "woodless": 4.0
+        "woodless": 4.0,
+        "chain": {
+          "source": [],
+          "deliver": [
+            "FOOD"
+          ]
+        }
       },
       {
-        "item": "SUGAR",
         "forested": 0.0,
-        "woodless": 0.0
+        "woodless": 0.0,
+        "chain": {
+          "source": [],
+          "deliver": [
+            "SUGAR"
+          ]
+        }
       },
       {
-        "item": "TOBACCO",
         "forested": 1.0,
-        "woodless": 2.0
+        "woodless": 2.0,
+        "chain": {
+          "source": [],
+          "deliver": [
+            "TOBACCO"
+          ]
+        }
       },
       {
-        "item": "COTTON",
         "forested": 1.0,
-        "woodless": 3.0
+        "woodless": 3.0,
+        "chain": {
+          "source": [],
+          "deliver": [
+            "COTTON"
+          ]
+        }
       },
       {
-        "item": "FUR",
         "forested": 2.0,
-        "woodless": 0.0
+        "woodless": 0.0,
+        "chain": {
+          "source": [],
+          "deliver": [
+            "FUR"
+          ]
+        }
       },
       {
-        "item": "LUMBER",
         "forested": 4.0,
-        "woodless": 0.0
+        "woodless": 0.0,
+        "chain": {
+          "source": [],
+          "deliver": [
+            "LUMBER"
+          ]
+        }
       },
       {
-        "item": "ORE",
         "forested": 0.0,
-        "woodless": 0.0
+        "woodless": 0.0,
+        "chain": {
+          "source": [],
+          "deliver": [
+            "ORE"
+          ]
+        }
       },
       {
-        "item": "SILVER",
         "forested": 0.0,
-        "woodless": 0.0
+        "woodless": 0.0,
+        "chain": {
+          "source": [],
+          "deliver": [
+            "SILVER"
+          ]
+        }
       },
       {
-        "item": "FISH",
         "forested": 0.0,
-        "woodless": 0.0
+        "woodless": 0.0,
+        "chain": {
+          "source": [],
+          "deliver": [
+            "FISH"
+          ]
+        }
       }
     ]
   },
@@ -153,49 +288,94 @@
     "name": "SAVANNAH",
     "production": [
       {
-        "item": "FOOD",
         "forested": 3.0,
-        "woodless": 4.0
+        "woodless": 4.0,
+        "chain": {
+          "source": [],
+          "deliver": [
+            "FOOD"
+          ]
+        }
       },
       {
-        "item": "SUGAR",
         "forested": 1.0,
-        "woodless": 3.0
+        "woodless": 3.0,
+        "chain": {
+          "source": [],
+          "deliver": [
+            "SUGAR"
+          ]
+        }
       },
       {
-        "item": "TOBACCO",
         "forested": 1.0,
-        "woodless": 2.0
+        "woodless": 2.0,
+        "chain": {
+          "source": [],
+          "deliver": [
+            "TOBACCO"
+          ]
+        }
       },
       {
-        "item": "COTTON",
         "forested": 1.0,
-        "woodless": 3.0
+        "woodless": 3.0,
+        "chain": {
+          "source": [],
+          "deliver": [
+            "COTTON"
+          ]
+        }
       },
       {
-        "item": "FUR",
         "forested": 2.0,
-        "woodless": 0.0
+        "woodless": 0.0,
+        "chain": {
+          "source": [],
+          "deliver": [
+            "FUR"
+          ]
+        }
       },
       {
-        "item": "LUMBER",
         "forested": 4.0,
-        "woodless": 0.0
+        "woodless": 0.0,
+        "chain": {
+          "source": [],
+          "deliver": [
+            "LUMBER"
+          ]
+        }
       },
       {
-        "item": "ORE",
         "forested": 0.0,
-        "woodless": 0.0
+        "woodless": 0.0,
+        "chain": {
+          "source": [],
+          "deliver": [
+            "ORE"
+          ]
+        }
       },
       {
-        "item": "SILVER",
         "forested": 0.0,
-        "woodless": 0.0
+        "woodless": 0.0,
+        "chain": {
+          "source": [],
+          "deliver": [
+            "SILVER"
+          ]
+        }
       },
       {
-        "item": "FISH",
         "forested": 0.0,
-        "woodless": 0.0
+        "woodless": 0.0,
+        "chain": {
+          "source": [],
+          "deliver": [
+            "FISH"
+          ]
+        }
       }
     ]
   },
@@ -203,49 +383,94 @@
     "name": "MARSH",
     "production": [
       {
-        "item": "FOOD",
         "forested": 2.0,
-        "woodless": 3.0
+        "woodless": 3.0,
+        "chain": {
+          "source": [],
+          "deliver": [
+            "FOOD"
+          ]
+        }
       },
       {
-        "item": "SUGAR",
         "forested": 1.0,
-        "woodless": 1.0
+        "woodless": 1.0,
+        "chain": {
+          "source": [],
+          "deliver": [
+            "SUGAR"
+          ]
+        }
       },
       {
-        "item": "TOBACCO",
         "forested": 2.0,
-        "woodless": 3.0
+        "woodless": 3.0,
+        "chain": {
+          "source": [],
+          "deliver": [
+            "TOBACCO"
+          ]
+        }
       },
       {
-        "item": "COTTON",
         "forested": 0.0,
-        "woodless": 0.0
+        "woodless": 0.0,
+        "chain": {
+          "source": [],
+          "deliver": [
+            "COTTON"
+          ]
+        }
       },
       {
-        "item": "FUR",
         "forested": 2.0,
-        "woodless": 0.0
+        "woodless": 0.0,
+        "chain": {
+          "source": [],
+          "deliver": [
+            "FUR"
+          ]
+        }
       },
       {
-        "item": "LUMBER",
         "forested": 4.0,
-        "woodless": 0.0
+        "woodless": 0.0,
+        "chain": {
+          "source": [],
+          "deliver": [
+            "LUMBER"
+          ]
+        }
       },
       {
-        "item": "ORE",
         "forested": 2.0,
-        "woodless": 3.0
+        "woodless": 3.0,
+        "chain": {
+          "source": [],
+          "deliver": [
+            "ORE"
+          ]
+        }
       },
       {
-        "item": "SILVER",
         "forested": 0.0,
-        "woodless": 0.0
+        "woodless": 0.0,
+        "chain": {
+          "source": [],
+          "deliver": [
+            "SILVER"
+          ]
+        }
       },
       {
-        "item": "FISH",
         "forested": 0.0,
-        "woodless": 0.0
+        "woodless": 0.0,
+        "chain": {
+          "source": [],
+          "deliver": [
+            "FISH"
+          ]
+        }
       }
     ]
   },
@@ -253,49 +478,94 @@
     "name": "SWAMP",
     "production": [
       {
-        "item": "FOOD",
         "forested": 2.0,
-        "woodless": 3.0
+        "woodless": 3.0,
+        "chain": {
+          "source": [],
+          "deliver": [
+            "FOOD"
+          ]
+        }
       },
       {
-        "item": "SUGAR",
         "forested": 2.0,
-        "woodless": 3.0
+        "woodless": 3.0,
+        "chain": {
+          "source": [],
+          "deliver": [
+            "SUGAR"
+          ]
+        }
       },
       {
-        "item": "TOBACCO",
         "forested": 0.0,
-        "woodless": 1.0
+        "woodless": 1.0,
+        "chain": {
+          "source": [],
+          "deliver": [
+            "TOBACCO"
+          ]
+        }
       },
       {
-        "item": "COTTON",
         "forested": 0.0,
-        "woodless": 0.0
+        "woodless": 0.0,
+        "chain": {
+          "source": [],
+          "deliver": [
+            "COTTON"
+          ]
+        }
       },
       {
-        "item": "FUR",
         "forested": 0.0,
-        "woodless": 0.0
+        "woodless": 0.0,
+        "chain": {
+          "source": [],
+          "deliver": [
+            "FUR"
+          ]
+        }
       },
       {
-        "item": "LUMBER",
         "forested": 4.0,
-        "woodless": 0.0
+        "woodless": 0.0,
+        "chain": {
+          "source": [],
+          "deliver": [
+            "LUMBER"
+          ]
+        }
       },
       {
-        "item": "ORE",
         "forested": 0.0,
-        "woodless": 0.0
+        "woodless": 0.0,
+        "chain": {
+          "source": [],
+          "deliver": [
+            "ORE"
+          ]
+        }
       },
       {
-        "item": "SILVER",
         "forested": 0.0,
-        "woodless": 0.0
+        "woodless": 0.0,
+        "chain": {
+          "source": [],
+          "deliver": [
+            "SILVER"
+          ]
+        }
       },
       {
-        "item": "FISH",
         "forested": 0.0,
-        "woodless": 0.0
+        "woodless": 0.0,
+        "chain": {
+          "source": [],
+          "deliver": [
+            "FISH"
+          ]
+        }
       }
     ]
   },
@@ -303,49 +573,94 @@
     "name": "DESERT",
     "production": [
       {
-        "item": "FOOD",
         "forested": 2.0,
-        "woodless": 2.0
+        "woodless": 2.0,
+        "chain": {
+          "source": [],
+          "deliver": [
+            "FOOD"
+          ]
+        }
       },
       {
-        "item": "SUGAR",
         "forested": 0.0,
-        "woodless": 0.0
+        "woodless": 0.0,
+        "chain": {
+          "source": [],
+          "deliver": [
+            "SUGAR"
+          ]
+        }
       },
       {
-        "item": "TOBACCO",
         "forested": 0.0,
-        "woodless": 1.0
+        "woodless": 1.0,
+        "chain": {
+          "source": [],
+          "deliver": [
+            "TOBACCO"
+          ]
+        }
       },
       {
-        "item": "COTTON",
         "forested": 1.0,
-        "woodless": 1.0
+        "woodless": 1.0,
+        "chain": {
+          "source": [],
+          "deliver": [
+            "COTTON"
+          ]
+        }
       },
       {
-        "item": "FUR",
         "forested": 2.0,
-        "woodless": 0.0
+        "woodless": 0.0,
+        "chain": {
+          "source": [],
+          "deliver": [
+            "FUR"
+          ]
+        }
       },
       {
-        "item": "LUMBER",
         "forested": 2.0,
-        "woodless": 0.0
+        "woodless": 0.0,
+        "chain": {
+          "source": [],
+          "deliver": [
+            "LUMBER"
+          ]
+        }
       },
       {
-        "item": "ORE",
         "forested": 1.0,
-        "woodless": 2.0
+        "woodless": 2.0,
+        "chain": {
+          "source": [],
+          "deliver": [
+            "ORE"
+          ]
+        }
       },
       {
-        "item": "SILVER",
         "forested": 0.0,
-        "woodless": 0.0
+        "woodless": 0.0,
+        "chain": {
+          "source": [],
+          "deliver": [
+            "SILVER"
+          ]
+        }
       },
       {
-        "item": "FISH",
         "forested": 0.0,
-        "woodless": 0.0
+        "woodless": 0.0,
+        "chain": {
+          "source": [],
+          "deliver": [
+            "FISH"
+          ]
+        }
       }
     ]
   },
@@ -353,49 +668,94 @@
     "name": "TUNDRA",
     "production": [
       {
-        "item": "FOOD",
         "forested": 2.0,
-        "woodless": 3.0
+        "woodless": 3.0,
+        "chain": {
+          "source": [],
+          "deliver": [
+            "FOOD"
+          ]
+        }
       },
       {
-        "item": "SUGAR",
         "forested": 0.0,
-        "woodless": 0.0
+        "woodless": 0.0,
+        "chain": {
+          "source": [],
+          "deliver": [
+            "SUGAR"
+          ]
+        }
       },
       {
-        "item": "TOBACCO",
         "forested": 0.0,
-        "woodless": 0.0
+        "woodless": 0.0,
+        "chain": {
+          "source": [],
+          "deliver": [
+            "TOBACCO"
+          ]
+        }
       },
       {
-        "item": "COTTON",
         "forested": 0.0,
-        "woodless": 0.0
+        "woodless": 0.0,
+        "chain": {
+          "source": [],
+          "deliver": [
+            "COTTON"
+          ]
+        }
       },
       {
-        "item": "FUR",
         "forested": 3.0,
-        "woodless": 0.0
+        "woodless": 0.0,
+        "chain": {
+          "source": [],
+          "deliver": [
+            "FUR"
+          ]
+        }
       },
       {
-        "item": "LUMBER",
         "forested": 4.0,
-        "woodless": 0.0
+        "woodless": 0.0,
+        "chain": {
+          "source": [],
+          "deliver": [
+            "LUMBER"
+          ]
+        }
       },
       {
-        "item": "ORE",
         "forested": 1.0,
-        "woodless": 2.0
+        "woodless": 2.0,
+        "chain": {
+          "source": [],
+          "deliver": [
+            "ORE"
+          ]
+        }
       },
       {
-        "item": "SILVER",
         "forested": 0.0,
-        "woodless": 0.0
+        "woodless": 0.0,
+        "chain": {
+          "source": [],
+          "deliver": [
+            "SILVER"
+          ]
+        }
       },
       {
-        "item": "FISH",
         "forested": 0.0,
-        "woodless": 0.0
+        "woodless": 0.0,
+        "chain": {
+          "source": [],
+          "deliver": [
+            "FISH"
+          ]
+        }
       }
     ]
   },
@@ -403,49 +763,94 @@
     "name": "ARCTIC",
     "production": [
       {
-        "item": "FOOD",
         "forested": 0.0,
-        "woodless": 0.0
+        "woodless": 0.0,
+        "chain": {
+          "source": [],
+          "deliver": [
+            "FOOD"
+          ]
+        }
       },
       {
-        "item": "SUGAR",
         "forested": 0.0,
-        "woodless": 0.0
+        "woodless": 0.0,
+        "chain": {
+          "source": [],
+          "deliver": [
+            "SUGAR"
+          ]
+        }
       },
       {
-        "item": "TOBACCO",
         "forested": 0.0,
-        "woodless": 0.0
+        "woodless": 0.0,
+        "chain": {
+          "source": [],
+          "deliver": [
+            "TOBACCO"
+          ]
+        }
       },
       {
-        "item": "COTTON",
         "forested": 0.0,
-        "woodless": 0.0
+        "woodless": 0.0,
+        "chain": {
+          "source": [],
+          "deliver": [
+            "COTTON"
+          ]
+        }
       },
       {
-        "item": "FUR",
         "forested": 0.0,
-        "woodless": 0.0
+        "woodless": 0.0,
+        "chain": {
+          "source": [],
+          "deliver": [
+            "FUR"
+          ]
+        }
       },
       {
-        "item": "LUMBER",
         "forested": 0.0,
-        "woodless": 0.0
+        "woodless": 0.0,
+        "chain": {
+          "source": [],
+          "deliver": [
+            "LUMBER"
+          ]
+        }
       },
       {
-        "item": "ORE",
         "forested": 0.0,
-        "woodless": 0.0
+        "woodless": 0.0,
+        "chain": {
+          "source": [],
+          "deliver": [
+            "ORE"
+          ]
+        }
       },
       {
-        "item": "SILVER",
         "forested": 0.0,
-        "woodless": 0.0
+        "woodless": 0.0,
+        "chain": {
+          "source": [],
+          "deliver": [
+            "SILVER"
+          ]
+        }
       },
       {
-        "item": "FISH",
         "forested": 0.0,
-        "woodless": 0.0
+        "woodless": 0.0,
+        "chain": {
+          "source": [],
+          "deliver": [
+            "FISH"
+          ]
+        }
       }
     ]
   },
@@ -453,49 +858,94 @@
     "name": "HILLS",
     "production": [
       {
-        "item": "FOOD",
         "forested": 2.0,
-        "woodless": 2.0
+        "woodless": 2.0,
+        "chain": {
+          "source": [],
+          "deliver": [
+            "FOOD"
+          ]
+        }
       },
       {
-        "item": "SUGAR",
         "forested": 0.0,
-        "woodless": 0.0
+        "woodless": 0.0,
+        "chain": {
+          "source": [],
+          "deliver": [
+            "SUGAR"
+          ]
+        }
       },
       {
-        "item": "TOBACCO",
         "forested": 0.0,
-        "woodless": 0.0
+        "woodless": 0.0,
+        "chain": {
+          "source": [],
+          "deliver": [
+            "TOBACCO"
+          ]
+        }
       },
       {
-        "item": "COTTON",
         "forested": 0.0,
-        "woodless": 0.0
+        "woodless": 0.0,
+        "chain": {
+          "source": [],
+          "deliver": [
+            "COTTON"
+          ]
+        }
       },
       {
-        "item": "FUR",
         "forested": 0.0,
-        "woodless": 0.0
+        "woodless": 0.0,
+        "chain": {
+          "source": [],
+          "deliver": [
+            "FUR"
+          ]
+        }
       },
       {
-        "item": "LUMBER",
         "forested": 0.0,
-        "woodless": 0.0
+        "woodless": 0.0,
+        "chain": {
+          "source": [],
+          "deliver": [
+            "LUMBER"
+          ]
+        }
       },
       {
-        "item": "ORE",
         "forested": 4.0,
-        "woodless": 4.0
+        "woodless": 4.0,
+        "chain": {
+          "source": [],
+          "deliver": [
+            "ORE"
+          ]
+        }
       },
       {
-        "item": "SILVER",
         "forested": 0.0,
-        "woodless": 0.0
+        "woodless": 0.0,
+        "chain": {
+          "source": [],
+          "deliver": [
+            "SILVER"
+          ]
+        }
       },
       {
-        "item": "FISH",
         "forested": 0.0,
-        "woodless": 0.0
+        "woodless": 0.0,
+        "chain": {
+          "source": [],
+          "deliver": [
+            "FISH"
+          ]
+        }
       }
     ]
   },
@@ -503,49 +953,94 @@
     "name": "MOUNTAINS",
     "production": [
       {
-        "item": "FOOD",
         "forested": 0.0,
-        "woodless": 0.0
+        "woodless": 0.0,
+        "chain": {
+          "source": [],
+          "deliver": [
+            "FOOD"
+          ]
+        }
       },
       {
-        "item": "SUGAR",
         "forested": 0.0,
-        "woodless": 0.0
+        "woodless": 0.0,
+        "chain": {
+          "source": [],
+          "deliver": [
+            "SUGAR"
+          ]
+        }
       },
       {
-        "item": "TOBACCO",
         "forested": 0.0,
-        "woodless": 0.0
+        "woodless": 0.0,
+        "chain": {
+          "source": [],
+          "deliver": [
+            "TOBACCO"
+          ]
+        }
       },
       {
-        "item": "COTTON",
         "forested": 0.0,
-        "woodless": 0.0
+        "woodless": 0.0,
+        "chain": {
+          "source": [],
+          "deliver": [
+            "COTTON"
+          ]
+        }
       },
       {
-        "item": "FUR",
         "forested": 0.0,
-        "woodless": 0.0
+        "woodless": 0.0,
+        "chain": {
+          "source": [],
+          "deliver": [
+            "FUR"
+          ]
+        }
       },
       {
-        "item": "LUMBER",
         "forested": 0.0,
-        "woodless": 0.0
+        "woodless": 0.0,
+        "chain": {
+          "source": [],
+          "deliver": [
+            "LUMBER"
+          ]
+        }
       },
       {
-        "item": "ORE",
         "forested": 3.0,
-        "woodless": 3.0
+        "woodless": 3.0,
+        "chain": {
+          "source": [],
+          "deliver": [
+            "ORE"
+          ]
+        }
       },
       {
-        "item": "SILVER",
         "forested": 1.0,
-        "woodless": 1.0
+        "woodless": 1.0,
+        "chain": {
+          "source": [],
+          "deliver": [
+            "SILVER"
+          ]
+        }
       },
       {
-        "item": "FISH",
         "forested": 0.0,
-        "woodless": 0.0
+        "woodless": 0.0,
+        "chain": {
+          "source": [],
+          "deliver": [
+            "FISH"
+          ]
+        }
       }
     ]
   },
@@ -553,49 +1048,94 @@
     "name": "OCEAN",
     "production": [
       {
-        "item": "FOOD",
         "forested": 0.0,
-        "woodless": 0.0
+        "woodless": 0.0,
+        "chain": {
+          "source": [],
+          "deliver": [
+            "FOOD"
+          ]
+        }
       },
       {
-        "item": "SUGAR",
         "forested": 0.0,
-        "woodless": 0.0
+        "woodless": 0.0,
+        "chain": {
+          "source": [],
+          "deliver": [
+            "SUGAR"
+          ]
+        }
       },
       {
-        "item": "TOBACCO",
         "forested": 0.0,
-        "woodless": 0.0
+        "woodless": 0.0,
+        "chain": {
+          "source": [],
+          "deliver": [
+            "TOBACCO"
+          ]
+        }
       },
       {
-        "item": "COTTON",
         "forested": 0.0,
-        "woodless": 0.0
+        "woodless": 0.0,
+        "chain": {
+          "source": [],
+          "deliver": [
+            "COTTON"
+          ]
+        }
       },
       {
-        "item": "FUR",
         "forested": 0.0,
-        "woodless": 0.0
+        "woodless": 0.0,
+        "chain": {
+          "source": [],
+          "deliver": [
+            "FUR"
+          ]
+        }
       },
       {
-        "item": "LUMBER",
         "forested": 0.0,
-        "woodless": 0.0
+        "woodless": 0.0,
+        "chain": {
+          "source": [],
+          "deliver": [
+            "LUMBER"
+          ]
+        }
       },
       {
-        "item": "ORE",
         "forested": 0.0,
-        "woodless": 0.0
+        "woodless": 0.0,
+        "chain": {
+          "source": [],
+          "deliver": [
+            "ORE"
+          ]
+        }
       },
       {
-        "item": "SILVER",
         "forested": 0.0,
-        "woodless": 0.0
+        "woodless": 0.0,
+        "chain": {
+          "source": [],
+          "deliver": [
+            "SILVER"
+          ]
+        }
       },
       {
-        "item": "FISH",
         "forested": 3.0,
-        "woodless": 3.0
+        "woodless": 3.0,
+        "chain": {
+          "source": [],
+          "deliver": [
+            "FISH"
+          ]
+        }
       }
     ]
   }

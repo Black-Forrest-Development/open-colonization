@@ -14,4 +14,6 @@ interface ItemRepository : PageableRepository<ItemData, Long> {
     fun findByName(name: String): ItemData?
     fun findByWorldId(id: Long, pageable: Pageable): Page<ItemData>
 
+    fun findByIdIn(ids: Set<Long>): List<ItemData>
+
 }

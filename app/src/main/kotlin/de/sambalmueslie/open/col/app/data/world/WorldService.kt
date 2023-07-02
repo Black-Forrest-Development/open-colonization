@@ -3,6 +3,7 @@ package de.sambalmueslie.open.col.app.data.world
 
 import de.sambalmueslie.open.col.app.cache.CacheService
 import de.sambalmueslie.open.col.app.common.GenericCrudService
+import de.sambalmueslie.open.col.app.common.SimpleDataObjectConverter
 import de.sambalmueslie.open.col.app.common.TimeProvider
 import de.sambalmueslie.open.col.app.data.world.api.World
 import de.sambalmueslie.open.col.app.data.world.api.WorldChangeRequest
@@ -18,7 +19,13 @@ class WorldService(
     private val repository: WorldRepository,
     private val timeProvider: TimeProvider,
     cacheService: CacheService,
-) : GenericCrudService<Long, World, WorldChangeRequest, WorldData>(repository, cacheService, World::class, logger) {
+) : GenericCrudService<Long, World, WorldChangeRequest, WorldData>(
+    repository,
+    SimpleDataObjectConverter(),
+    cacheService,
+    World::class,
+    logger
+) {
 
 
     companion object {

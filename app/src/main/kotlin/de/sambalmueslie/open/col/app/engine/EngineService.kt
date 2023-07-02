@@ -30,15 +30,13 @@ class EngineService(
 
     private fun updateWorld(context: EngineContext) {
         logger.info("[${context.world.id}|${context.timestamp}] World start update")
-        val duration = measureTimeMillis {
-            systems.forEach {
-                val duration = measureTimeMillis {
-                    it.update(context)
-                }
-                handleSystemExecution(it, context, duration)
-            }
-        }
+        val duration = measureTimeMillis { systems.forEach { updateSystem(context, it) } }
         handleWorldExecution(context, duration)
+    }
+
+    private fun updateSystem(context: EngineContext, system: ComponentSystem) {
+        val duration = measureTimeMillis { system.update(context) }
+        handleSystemExecution(system, context, duration)
     }
 
 

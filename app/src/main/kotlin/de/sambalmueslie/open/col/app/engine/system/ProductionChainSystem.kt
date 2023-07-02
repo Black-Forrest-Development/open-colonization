@@ -7,40 +7,38 @@ import de.sambalmueslie.open.col.app.data.item.api.Item
 import de.sambalmueslie.open.col.app.data.settlement.SettlementService
 import de.sambalmueslie.open.col.app.data.settlement.api.Settlement
 import de.sambalmueslie.open.col.app.data.terrain.TerrainService
+import de.sambalmueslie.open.col.app.data.terrain.api.TerrainProduction
 import de.sambalmueslie.open.col.app.data.tile.TileMapService
 import de.sambalmueslie.open.col.app.data.tile.api.TerrainTile
 import de.sambalmueslie.open.col.app.engine.api.ComponentSystem
 import de.sambalmueslie.open.col.app.engine.api.EngineContext
-import de.sambalmueslie.open.col.app.engine.api.ItemProduction
 import de.sambalmueslie.open.col.app.engine.service.StorageService
 import jakarta.inject.Singleton
 import org.slf4j.Logger
 import org.slf4j.LoggerFactory
 
 @Singleton
-class TerrainProductionSystem(
-    private val terrainService: TerrainService,
-    private val itemService: ItemService,
-    private val tileMapService: TileMapService,
+class ProductionChainSystem(
     private val settlementService: SettlementService,
-    private val storageService: StorageService
+    private val tileMapService: TileMapService,
+    private val terrainService: TerrainService,
+    private val storageService: StorageService,
 ) : ComponentSystem {
 
     companion object {
-        private val logger: Logger = LoggerFactory.getLogger(TerrainProductionSystem::class.java)
+        private val logger: Logger = LoggerFactory.getLogger(ProductionChainSystem::class.java)
     }
-
 
     override fun update(context: EngineContext) {
         val settlements = PageableSequence() { settlementService.findByWorld(context.world, it) }
-        settlements.forEach { calcProduction(context, it) }
+        settlements.forEach { updateSettlement(context, it) }
     }
 
-    private fun calcProduction(context: EngineContext, settlement: Settlement) {
-        val coordinate = settlement.coordinate
+    private fun updateSettlement(context: EngineContext, settlement: Settlement) {
+        logger.debug("[${settlement.id}] Update settlement ${settlement.name}")
         val data = mutableMapOf<Item, Double>()
-        val terrain = tileMapService.getTerrainTile(context.world, coordinate) ?: return
-        calcProduction(terrain, data)
+        updateTerrainProduction(context, settlement, data)
+        updateBuildingProduction(context, settlement, data)
 
         logger.info(
             "[${settlement.name}] - Production ${
@@ -50,6 +48,19 @@ class TerrainProductionSystem(
 
         storageService.store(settlement, data)
     }
+
+
+    private fun updateTerrainProduction(
+        context: EngineContext,
+        settlement: Settlement,
+        data: MutableMap<Item, Double>
+    ) {
+        val coordinate = settlement.coordinate
+
+        val terrain = tileMapService.getTerrainTile(context.world, coordinate) ?: return
+        calcProduction(terrain, data)
+    }
+
 
     private fun calcProduction(
         tile: TerrainTile,
@@ -62,19 +73,31 @@ class TerrainProductionSystem(
 
     private fun calcTerrainProduction(
         tile: TerrainTile,
-        production: ItemProduction,
+        production: TerrainProduction,
         result: MutableMap<Item, Double>
     ) {
         val amount = production.woodless
         if (amount <= 0) return
 
-        val item = itemService.get(production.itemId)
-            ?: return logger.error("Cannot find item for tile ${tile.coordinate} - ${production.itemId}")
+        // TODO consider source too
 
-        logger.info("[${tile.coordinate}] - Produce $amount of ${item.name}")
+        val deliver = production.chain.deliver
+        if (deliver.isEmpty()) return
 
-        val current = result[item] ?: 0.0
-        result[item] = amount + current
+        deliver.forEach {
+            logger.info("[${tile.coordinate}] - Produce $amount of ${it.name}")
+
+            val current = result[it] ?: 0.0
+            result[it] = amount + current
+        }
+    }
+
+    private fun updateBuildingProduction(
+        context: EngineContext,
+        settlement: Settlement,
+        result: MutableMap<Item, Double>
+    ) {
+//        TODO("Not yet implemented")
     }
 
 }
