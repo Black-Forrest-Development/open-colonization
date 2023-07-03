@@ -26,7 +26,7 @@ class TerrainProductionConverter(
             obj.terrainId,
             obj.forested,
             obj.woodless,
-            chainService.get(obj.chainId)!!
+            chainService.get(obj.chainId) ?: ProductionChain(-1, emptyList(), emptyList())
         )
     }
 
@@ -48,7 +48,7 @@ class TerrainProductionConverter(
             data.terrainId,
             data.forested,
             data.woodless,
-            chains[data.chainId]!!
+            chains[data.chainId] ?: ProductionChain(-1, emptyList(), emptyList())
         )
     }
 }

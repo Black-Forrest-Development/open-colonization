@@ -3,14 +3,12 @@ package de.sambalmueslie.open.col.app.data.production
 
 import de.sambalmueslie.open.col.app.cache.CacheService
 import de.sambalmueslie.open.col.app.common.GenericCrudService
-import de.sambalmueslie.open.col.app.common.PageableSequence
 import de.sambalmueslie.open.col.app.common.TimeProvider
 import de.sambalmueslie.open.col.app.data.item.ItemService
 import de.sambalmueslie.open.col.app.data.production.api.ProductionChain
 import de.sambalmueslie.open.col.app.data.production.api.ProductionChainChangeRequest
 import de.sambalmueslie.open.col.app.data.production.db.ProductionChainData
 import de.sambalmueslie.open.col.app.data.production.db.ProductionChainRepository
-import de.sambalmueslie.open.col.app.data.world.api.World
 import de.sambalmueslie.open.col.app.error.InvalidRequestException
 import jakarta.inject.Singleton
 import org.slf4j.Logger

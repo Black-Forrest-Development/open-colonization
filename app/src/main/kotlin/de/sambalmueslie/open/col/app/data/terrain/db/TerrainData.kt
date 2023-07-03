@@ -1,9 +1,7 @@
 package de.sambalmueslie.open.col.app.data.terrain.db
 
 import de.sambalmueslie.open.col.app.common.DataObject
-import de.sambalmueslie.open.col.app.data.terrain.api.Terrain
 import de.sambalmueslie.open.col.app.data.terrain.api.TerrainChangeRequest
-import de.sambalmueslie.open.col.app.data.terrain.api.TerrainProduction
 import de.sambalmueslie.open.col.app.data.world.api.World
 import jakarta.persistence.*
 import java.time.LocalDateTime

@@ -1,6 +1,5 @@
 package de.sambalmueslie.open.col.app.data.item.db
 
-import de.sambalmueslie.open.col.app.common.DataObject
 import de.sambalmueslie.open.col.app.common.SimpleDataObject
 import de.sambalmueslie.open.col.app.data.item.api.Item
 import de.sambalmueslie.open.col.app.data.item.api.ItemChangeRequest

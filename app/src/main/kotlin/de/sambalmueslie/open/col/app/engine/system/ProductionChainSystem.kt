@@ -2,7 +2,6 @@ package de.sambalmueslie.open.col.app.engine.system
 
 
 import de.sambalmueslie.open.col.app.common.PageableSequence
-import de.sambalmueslie.open.col.app.data.item.ItemService
 import de.sambalmueslie.open.col.app.data.item.api.Item
 import de.sambalmueslie.open.col.app.data.settlement.SettlementService
 import de.sambalmueslie.open.col.app.data.settlement.api.Settlement

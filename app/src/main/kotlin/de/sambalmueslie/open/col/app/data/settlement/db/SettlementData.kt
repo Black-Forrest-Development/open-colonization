@@ -1,6 +1,5 @@
 package de.sambalmueslie.open.col.app.data.settlement.db
 
-import de.sambalmueslie.open.col.app.common.DataObject
 import de.sambalmueslie.open.col.app.common.SimpleDataObject
 import de.sambalmueslie.open.col.app.data.player.api.Player
 import de.sambalmueslie.open.col.app.data.settlement.api.Settlement
