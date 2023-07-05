@@ -11,7 +11,12 @@ import de.sambalmueslie.open.col.app.common.BusinessObject
 data class Building(
     override val id: Long,
     val name: String,
-    val requirements: List<BuildingRequirement>,
-    val costs: List<BuildingCost>,
-    val effect: List<BuildingEffect>
+    val minLevel: Int,
+    val maxLevel: Int,
+
+    val production: List<BuildingProduction>,
+//
+//    val requirements: List<BuildingRequirement>,
+//    val costs: List<BuildingCost>,
+//    val effect: List<BuildingEffect>
 ) : BusinessObject<Long>

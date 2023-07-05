@@ -9,7 +9,7 @@ import de.sambalmueslie.open.col.app.data.terrain.api.Terrain
 import de.sambalmueslie.open.col.app.data.terrain.api.TerrainProduction
 import de.sambalmueslie.open.col.app.data.terrain.api.TerrainProductionChangeRequest
 import de.sambalmueslie.open.col.app.data.terrain.db.TerrainData
-import de.sambalmueslie.open.col.app.data.terrain.db.TerrainProductionChainRepository
+import de.sambalmueslie.open.col.app.data.terrain.db.TerrainProductionRepository
 import de.sambalmueslie.open.col.app.data.terrain.db.TerrainProductionData
 import de.sambalmueslie.open.col.app.error.InvalidRequestException
 import jakarta.inject.Singleton
@@ -18,7 +18,7 @@ import org.slf4j.LoggerFactory
 
 @Singleton
 class TerrainProductionService(
-    private val repository: TerrainProductionChainRepository,
+    private val repository: TerrainProductionRepository,
     private val timeProvider: TimeProvider,
     cacheService: CacheService,
     private val converter: TerrainProductionConverter,

@@ -2,9 +2,14 @@ package de.sambalmueslie.open.col.app.engine.system
 
 
 import de.sambalmueslie.open.col.app.common.PageableSequence
+import de.sambalmueslie.open.col.app.data.building.BuildingService
+import de.sambalmueslie.open.col.app.data.building.api.Building
+import de.sambalmueslie.open.col.app.data.building.api.BuildingProduction
 import de.sambalmueslie.open.col.app.data.item.api.Item
+import de.sambalmueslie.open.col.app.data.settlement.SettlementBuildingService
 import de.sambalmueslie.open.col.app.data.settlement.SettlementService
 import de.sambalmueslie.open.col.app.data.settlement.api.Settlement
+import de.sambalmueslie.open.col.app.data.settlement.db.SettlementBuildingEntry
 import de.sambalmueslie.open.col.app.data.terrain.TerrainService
 import de.sambalmueslie.open.col.app.data.terrain.api.TerrainProduction
 import de.sambalmueslie.open.col.app.data.tile.TileMapService
@@ -21,6 +26,8 @@ class ProductionChainSystem(
     private val settlementService: SettlementService,
     private val tileMapService: TileMapService,
     private val terrainService: TerrainService,
+    private val settlementBuildingService: SettlementBuildingService,
+    private val buildingService: BuildingService,
     private val storageService: StorageService,
 ) : ComponentSystem {
 
@@ -96,7 +103,41 @@ class ProductionChainSystem(
         settlement: Settlement,
         result: MutableMap<Item, Double>
     ) {
-//        TODO("Not yet implemented")
+        val buildings = settlementBuildingService.getBuildings(settlement)
+        buildings.forEach { calcProduction( it, result) }
+    }
+
+    private fun calcProduction(
+        entry: SettlementBuildingEntry,
+        result: MutableMap<Item, Double>
+    ) {
+        if (entry.level <= 0) return
+        val building = buildingService.get(entry.id.buildingId) ?: return logger.error("Cannot find building")
+
+        building.production.forEach { calcBuildingProduction(building, entry, it, result) }
+
+    }
+
+    private fun calcBuildingProduction(
+        building: Building,
+        entry: SettlementBuildingEntry,
+        production: BuildingProduction,
+        result: MutableMap<Item, Double>
+    ) {
+        val amount = entry.level * production.factor
+        if (amount <= 0) return
+
+        // TODO consider source too
+
+        val deliver = production.chain.deliver
+        if (deliver.isEmpty()) return
+
+        deliver.forEach {
+            logger.info("[${building.name}] - Produce $amount of ${it.name}")
+
+            val current = result[it] ?: 0.0
+            result[it] = amount + current
+        }
     }
 
 }

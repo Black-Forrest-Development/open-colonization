@@ -117,30 +117,6 @@ CREATE TABLE tile_terrain
     terrain_id   BIGINT NOT NULL REFERENCES terrain
 );
 
--- settlement
-CREATE SEQUENCE settlement_seq;
-CREATE TABLE settlement
-(
-    id           BIGINT                      NOT NULL PRIMARY KEY DEFAULT nextval('settlement_seq'::regclass),
-    coordinate_x INT                         NOT NULL,
-    coordinate_y INT                         NOT NULL,
-    name         VARCHAR(255) UNIQUE         NOT NULL,
-
-    world_id     BIGINT                      NOT NULL REFERENCES world,
-    owner_id     BIGINT                      NOT NULL REFERENCES player,
-
-    created      TIMESTAMP WITHOUT TIME ZONE NOT NULL,
-    updated      TIMESTAMP WITHOUT TIME ZONE
-);
-
-CREATE TABLE settlement_item
-(
-    id_settlement_id BIGINT           NOT NULL REFERENCES settlement,
-    id_item_id       BIGINT           NOT NULL REFERENCES item,
-    amount           DOUBLE PRECISION NOT NULL,
-    PRIMARY KEY (id_settlement_id, id_item_id)
-);
-
 
 -- buildings
 CREATE SEQUENCE building_seq;
@@ -154,6 +130,22 @@ CREATE TABLE building
     created  TIMESTAMP WITHOUT TIME ZONE NOT NULL,
     updated  TIMESTAMP WITHOUT TIME ZONE
 );
+
+CREATE SEQUENCE building_production_seq;
+CREATE TABLE building_production
+(
+    id          BIGINT                      NOT NULL PRIMARY KEY DEFAULT nextval('building_production_seq'::regclass),
+
+    factor      DOUBLE PRECISION            NOT NULL,
+
+    building_id BIGINT                      NOT NULL REFERENCES building,
+    chain_id    BIGINT                      NOT NULL REFERENCES production_chain,
+
+    created     TIMESTAMP WITHOUT TIME ZONE NOT NULL,
+    updated     TIMESTAMP WITHOUT TIME ZONE
+);
+
+
 
 CREATE TABLE building_requirement
 (
@@ -188,4 +180,36 @@ CREATE TABLE building_effect_item
 
     created     TIMESTAMP WITHOUT TIME ZONE NOT NULL,
     updated     TIMESTAMP WITHOUT TIME ZONE
+);
+
+-- settlement
+CREATE SEQUENCE settlement_seq;
+CREATE TABLE settlement
+(
+    id           BIGINT                      NOT NULL PRIMARY KEY DEFAULT nextval('settlement_seq'::regclass),
+    coordinate_x INT                         NOT NULL,
+    coordinate_y INT                         NOT NULL,
+    name         VARCHAR(255) UNIQUE         NOT NULL,
+
+    world_id     BIGINT                      NOT NULL REFERENCES world,
+    owner_id     BIGINT                      NOT NULL REFERENCES player,
+
+    created      TIMESTAMP WITHOUT TIME ZONE NOT NULL,
+    updated      TIMESTAMP WITHOUT TIME ZONE
+);
+
+CREATE TABLE settlement_item
+(
+    id_settlement_id BIGINT           NOT NULL REFERENCES settlement,
+    id_item_id       BIGINT           NOT NULL REFERENCES item,
+    amount           DOUBLE PRECISION NOT NULL,
+    PRIMARY KEY (id_settlement_id, id_item_id)
+);
+
+CREATE TABLE settlement_building
+(
+    id_settlement_id BIGINT NOT NULL REFERENCES settlement,
+    id_building_id   BIGINT NOT NULL REFERENCES building,
+    level            INT    NOT NULL,
+    PRIMARY KEY (id_settlement_id, id_building_id)
 );
